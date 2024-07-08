@@ -1,0 +1,28 @@
+{% extends "basedos.html" %}
+{% load static %}
+
+{% block content %}
+<header>
+    <h2>Registrarse</h2>
+    <p> Registrate con tu nombre y una contraseña para poder acceder. 
+    </p>
+</header>
+
+{{error}}
+
+<section class="formularioRegistro">
+    <img class="logo" src="{% static 'logo.png' %}" alt="Logo">
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <label for="id_usuario">Nombre de Usuario:</label>
+        <input type="text" id="id_usuario" name="username">
+        <label for="id_contraseña1">Contraseña:</label>
+        <input type="password" id="id_contraseña1" name="password1">
+        <label for="id_contraseña2">Confirmar Contraseña:</label>
+        <input type="password" id="id_contraseña2" name="password2">
+        <button type="submit">
+            Abir una cuenta
+        </button>
+    </form>
+</section>
+{% endblock  %} 

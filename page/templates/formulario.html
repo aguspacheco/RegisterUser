@@ -1,0 +1,260 @@
+    {% extends "basedos.html" %}
+    {% load static %}
+
+    {% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Formulario VeSEP</title>
+        <link rel="stylesheet" href="{% static 'styles/form.css' %}">
+    </head>
+    <body>
+        <h8> PROVINCIA DEL CHUBUT </h8>
+        <h7> Direccion General de Catastro e Información Territorial</h7>
+        <h6> CERTIFICADO DE VERIFICACIÓN DE SUBSISTENCIA DE ESTADO PARCELARIO (VeSEP) UNIDADES FUNCIONES / UNIDADES COMPLEMENTARIAS </h6>
+       
+            <section class="datosFisicos">
+                <fieldset id="contenedorDatosFisicos">
+                    <h5><u>DATOS FISICOS DEL INMUEBLE</u></h5>
+                    <form class="formulario" id="formularioAnterior">
+                        <legend>Nomenclatura Catastral Anterior</legend>
+                    
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="ejido"></label>
+                                <input type="number" id="chacra"
+                                min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="chacra">Chacra</label>
+                                <input type="number" id="chacra" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="fraccion">Fracción</label>
+                                <input type="number" id="fraccion" min="0">
+                            </div>
+                        </div>
+
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="quinta">Quinta</label>
+                                <input type="number" id="quinta" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="lote">Lote</label>
+                                <input type="number" id="lote" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="macizo">Macizo</label>
+                                <input type="number" id="macizo" min="0">
+                            </div>
+                        </div>
+                    
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="manzana">Manzana</label>
+                                <input type="number" id="manzana" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="lote">Lote</label>
+                                <input type="number" id="lote" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="unidad funcional">UF/UC</label>
+                                <input type="number" id="unidadFuncional" min="0">
+                            </div>
+                        </div>  
+                </form>
+
+                    <form class="formulario" id="formularioActual">
+                        <legend>Nomenclatura Catastral Anterior</legend>
+
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="ejido"></label>
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="circunscripcion">circunscripción</label>
+                                <input type="number" id="circunscripcion" min="0">
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="sector">Sector</label>
+                                <input type="number" id="sector" min="0">
+                            </div>    
+                        </div>
+                        
+                        
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="chacra">Chacra</label>
+                                <input type="number" id="chacraActual" min="0">
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="fraccion">Fraccion</label>
+                                <input type="number" id="fraccionActual" min="0">
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="macizo">Macizo</label>
+                                <input type="number" id="macizoActual" min="0">
+                            </div>    
+                        </div>
+                        
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="manzana">Manzana</label>
+                                <input type="number" id="manzanaActual" min="0">
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="parcela">Parcela</label>
+                                <input type="number" id="parcela" min="0">
+                            </div>
+        
+                            <div class="elemento">
+                                <label for="unidadFuncional">UF/UC</label>
+                                <input type="number" id="unidadFuncionalActual" min="0">
+                            </div>
+                        </div>
+                    </form>    
+        
+                <form class="formulario" id="formularioAntecedente">
+                    <legend>Antecedente Catastral</legend>
+
+                    <div class="fila">
+                        <div class="elemento">
+                            <label for="expediente">Expediente</label>
+                            <input type="text" id="expediente" min="0">
+                        </div>
+
+                        <div class="elemento">
+                            <label for="plano">Plano</label>
+                            <input type="number" id="plano" min="0">
+                        </div>
+                    </div>
+
+                    <div class="fila">        
+                        <div class="elemento">
+                            <label for="tomo">Tomo</label>
+                            <input type="number" id="tomo" min="0">
+                        </div>
+
+                        <div class="elemento">
+                            <label for="folio">Folio</label>
+                            <input type="number" id="folio" min="0">
+                        </div>
+                    </div>
+                </form>
+            </fieldset>    
+        </section>
+
+            <section class="datosJuridicos">
+                <fieldset id="contenedorJuridicos">
+                    <h5><u>DATOS JURIDICOS DEL INMUEBLE</u></h5>
+            
+                    <form class="formulario" id="formularioPersona">
+
+                        <div class="fila">
+                            <div class="elemento fila-1">
+                                <label for="apellido">Apellido y nombre o razón social</label>
+                                <input type="text" id="apellido">
+                            </div>
+
+                            <div class="elemento fila-1">
+                                <label for="calle">Calle</label>
+                                <input type="text" id="calle">
+                            </div>
+
+                            <div class="elemento fila-1">
+                                <label for="numero">Nº</label>
+                                <input type="number" id="numero" min="0">
+                            </div>
+                        </div>
+                    
+                        <div class="elemento fila-2">
+                            <label for="localidad"></label>
+                            <div class="elemento fila-2">
+                                <label for="cuit">CUIT/CUIL</label>
+                                <input type="text" id="cuit" min="0">
+                            </div>
+                        </div>
+                    </form>
+                
+                    <form class="formulario" id="formularioTomo">
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="tomo">Tomo</label>
+                                <input type="number" id="tomo" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="folio">Folio</label>
+                                <input type="number" id="folio" min="0">
+                            </div>
+                        </div>
+                    
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="finca">Finca</label>
+                                <input type="number" id="finca" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="fecha"></label>
+                                <input type="date" id="fechaJuridicos">
+                            </div>
+                        </div>
+                    </form>
+
+                    <form class="formulario" id="formularioMatricula">
+                        <div class="fila">
+                            <div class="elemento">
+                                <label for="matricula">Matricula</label>
+                                <input type="text" id="matricula" min="0">
+                            </div>
+
+                            <div class="elemento">
+                                <label for="fecha"></label>
+                                <input type="date" id="fechaMatricula">
+                            </div>  
+                        </div>                  
+                    </form>
+            </fieldset>
+        </section>
+
+        <div class="botones">
+            <div class="botonEnviar">
+                <button class="enviar-btn btn" id="enviar-btn"type="submit">Enviar</button>
+            </div>
+        
+            <div class="botonCancelar">
+                <button class="cancelar-btn btn" id="cancelar-btn" type="button">Cancelar</button>
+            </div>
+        </div>
+
+        <script src="{% static 'js/botones/borrar.js' %}" type="module"></script>
+        <script src="{% static 'js/botones/label.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/actual.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/antecedente.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/anterior.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/matricula.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/persona.js' %}" type="module"></script>
+         <script src="{% static 'js/secciones/tomo.js' %}" type="module"></script>
+
+    </body>
+    {% endblock %}
+    </html>
+
+
+

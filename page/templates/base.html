@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+
+<body>
+    <nav>
+        <img class="logo" src="{% static 'logo.png' %}" alt="">
+        <ul>   
+            {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'formulario' %}">Completar el formulario</a>
+            </li>
+            <li>
+                <a href="{% url 'salir' %}">Salir</a>
+            </li>  
+            {% else %}
+            <li>
+                <a href="{% url 'signup' %}">Registrarse</a>
+            </li>   
+            <li>
+                <a href="{% url 'signin' %}">Iniciar Sección<a>
+            </li> 
+            {% endif %}
+        </ul>
+    </nav> 
+    {% block content %}
+    {% endblock  %}
+</body>
+</html>

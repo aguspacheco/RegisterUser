@@ -1,0 +1,160 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h5 {
+    text-align: center;
+    color: #1d1c1c;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+    color: #0066cc;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 30px;
+    box-shadow: 0px 0px 8px #14213d;
+    margin-top: 20px;
+}
+
+#apellido {
+    font-size: 19px;
+}
+
+#calle, #numero {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.fila {
+    display: flex;
+}
+
+.fila-2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.elemento {
+    position: relative;
+    margin: 6px;
+}
+
+#ejido, #localidad {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #1d1c1c;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0,15 ease-in-out, box-shadow 0.15s ease-in-out; 
+}
+
+label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    transition: all 0.4s;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logo {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+    width: 150px; 
+    height: auto; 
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.logo:hover {
+    box-shadow: 0 0 20px #fcbf49;
+}
+
+.label-active {
+    top: -6px;
+    font-size: 10px;
+    color: #1d3557;
+}
+
+input[type="date"],
+input[type="text"],
+input[type="number"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input[type="date"]:focus + label,
+input[type="text"]:focus + label,
+input[type="number"]:focus + label {
+    top: -20px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 1rem 1.5rem;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 1s ease;
+    background-color: transparent;
+    border: 2px solid #eee;
+    border-radius: 0.5rem;
+    color: #f6fff8;
+}
+
+.botonEnviar,
+.botonCancelar {
+    margin: 0 5px;
+}
+
+.enviar-btn {
+    background-color: #0066ff;
+}
+
+.cancelar-btn {
+    background-color: #e63946;
+}
+
+.btn:hover {
+    transform: translate(0, -6px);
+    box-shadow: 0.5rem, 0.5rem, 1rem #fff, -0.5 1rem #ccc;
+}
+
+button :active {
+    box-shadow: inset 0.2rem 0.2rem 1rem #fff, inset -0.2rem 1rem #ccc;
+}
