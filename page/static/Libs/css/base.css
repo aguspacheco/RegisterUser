@@ -1,0 +1,111 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('/static/images/fondo.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+}
+
+nav {
+  background-color: #333; 
+  padding: 10px 0; 
+  box-shadow: 0 2px 5px #0000001a; 
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff; 
+  padding: 10px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #555; 
+  color: #f5ebe0; 
+}
+
+header {
+  text-align: center;
+  padding: 20px 0; 
+  background-color: #00000080; 
+  color: #fff; 
+}
+
+.formularioIngreso, .formularioRegistro {
+  background-color: #edede9;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 #264653; 
+  text-align: center;
+}
+
+form {
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+form button {
+  padding: 10px;
+  background: linear-gradient(300deg, #3a86ff, #219ebc);
+  color: #f5ebe0;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+form input[type="email"], form input[type="password"], .reset-password-form input[type="email"] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px; 
+}
+
+form button,input[type="submit"] {
+  padding: 10px 20px;
+  background: linear-gradient(300deg, #3a86ff, #219ebc);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; 
+}
+
+form button:hover, input[type="submit"]:hover {
+  background: linear-gradient(300deg, #1a5d88, #0f7aa9); 
+}
+
+.reset-password-form {
+  max-width: 400px;
+  margin: 20px;
+  padding: 15px;
+  background-color: #f7fff7;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.reset-password-form h2 {
+  text-align: center;
+}
+
+.reset-password-form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}

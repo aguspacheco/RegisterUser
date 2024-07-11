@@ -10,7 +10,6 @@
     {{ error }}
 
 <section class="formularioIngreso">
-    <img class="logo" src="{% static 'logo.png' %}" alt="Logo">
     <form action="{% url 'signin' %}" method="POST">
         {% csrf_token %}
         <label for="id_usuario">Nombre de Usuario:</label>

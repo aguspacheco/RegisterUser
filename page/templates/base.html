@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <meta name="author" content="Agustin Pacheco">
+    <title>VeSEP</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
+      <link rel="stylesheet" href="{% static 'Libs/css/base.css' %}">
 </head>
 
 <body>
     <nav>
-        <img class="logo" src="{% static 'logo.png' %}" alt="">
         <ul>   
             {% if user.is_authenticated %}
             <li>
@@ -24,9 +25,6 @@
             <li>
                 <a href="{% url 'signup' %}">Registrarse</a>
             </li>   
-            <li>
-                <a href="{% url 'signin' %}">Iniciar Sección<a>
-            </li> 
             {% endif %}
         </ul>
     </nav> 
