@@ -1,23 +1,2 @@
-{% extends "base.html" %}
+{% extends "signin.html" %}
 {% load static %}
-
-{% block content %}
-<header>
-    <h2>Iniciar Sesión</h2>
-    <p>Inicia sesión en la plataforma para acceder al formulario o buscar tu trámite.</p>
-</header>
-
-    {{ error }}
-
-<section class="formularioIngreso">
-    <form action="{% url 'signin' %}" method="POST">
-        {% csrf_token %}
-        <label for="id_usuario">Nombre de Usuario:</label>
-        <input type="text" id="id_usuario" name="username">
-        <label for="id_contraseña">Contraseña:</label>
-        <input type="password" id="id_contraseña" name="password">
-        <button type="submit">Iniciar Sesión</button>
-        <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
-    </form>
-</section>
-{% endblock  %}

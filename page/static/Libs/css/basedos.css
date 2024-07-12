@@ -1,0 +1,89 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('/static/images/fondo.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+  }
+
+  nav {
+    background-color: #333; 
+    padding: 10px 0; 
+    box-shadow: 0 2px 5px #ffc300; 
+  }
+  
+  nav ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff; 
+    padding: 10px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: transparent; 
+    color: #90e0ef;
+  }
+  
+  header {
+    text-align: center;
+    padding: 10px 0; 
+    background-color: #00000080; 
+    color: #fff; 
+    box-shadow: 0 2px 5px #90e0ef; 
+  }
+
+  .formularioRegistro {
+    background-color: #edede9;
+    max-width: 250px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 0 #00000080; 
+    text-align: center;
+  }
+
+  form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  
+  form button,input[type="submit"] {
+    padding: 10px 20px;
+    background: linear-gradient(300deg, #3a86ff, #219ebc);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px; 
+  }
+  
+  form button:hover, input[type="submit"]:hover {
+    animation: pulse 0.7s ease-in-out;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+}   

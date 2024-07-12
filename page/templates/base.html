@@ -9,6 +9,7 @@
     <title>VeSEP</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
       <link rel="stylesheet" href="{% static 'Libs/css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'Libs/css/footer.css' %}">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                 <a href="{% url 'formulario' %}">Completar el formulario</a>
             </li>
             <li>
-                <a href="{% url 'salir' %}">Salir</a>
+                <a href="{% url 'salir' %}">Cerrar Sección</a>
             </li>  
             {% else %}
             <li>
@@ -30,5 +31,8 @@
     </nav> 
     {% block content %}
     {% endblock  %}
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
 </body>
 </html>

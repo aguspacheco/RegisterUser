@@ -10,10 +10,10 @@ body {
 nav {
   background-color: #333; 
   padding: 10px 0; 
-  box-shadow: 0 2px 5px #0000001a; 
+  box-shadow: 0 2px 5px #ffc300; 
 }
 
-nav ul {
+nav ul, li {
   margin: 0;
   padding: 0;
 }
@@ -26,55 +26,40 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #555; 
-  color: #f5ebe0; 
+  background-color: transparent; 
+  color: #90e0ef;
 }
 
 header {
   text-align: center;
-  padding: 20px 0; 
+  padding: 10px 0; 
   background-color: #00000080; 
   color: #fff; 
+  box-shadow: 0 2px 5px #90e0ef; 
 }
 
-.formularioIngreso, .formularioRegistro {
+.formularioIngreso {
   background-color: #edede9;
-  max-width: 300px;
-  margin: 20px auto;
+  max-width: 250px;
+  margin: 50px auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px 0 #264653; 
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 #00000080; 
   text-align: center;
 }
 
 form {
-  padding: 1px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 form input {
-  padding: 8px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 10px;
   font-size: 15px;
-}
-
-form button {
-  padding: 10px;
-  background: linear-gradient(300deg, #3a86ff, #219ebc);
-  color: #f5ebe0;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-form input[type="email"], form input[type="password"], .reset-password-form input[type="email"] {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 14px; 
 }
 
 form button,input[type="submit"] {
@@ -82,30 +67,24 @@ form button,input[type="submit"] {
   background: linear-gradient(300deg, #3a86ff, #219ebc);
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 14px; 
 }
 
 form button:hover, input[type="submit"]:hover {
-  background: linear-gradient(300deg, #1a5d88, #0f7aa9); 
+  animation: pulse 0.7s ease-in-out;
 }
 
-.reset-password-form {
-  max-width: 400px;
-  margin: 20px;
-  padding: 15px;
-  background-color: #f7fff7;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.reset-password-form h2 {
-  text-align: center;
-}
-
-.reset-password-form label {
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #333;
-}
