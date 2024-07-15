@@ -10,10 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import Ejido
 
-# Funcion para la vista principal 
-def principal(request):
-    return render(request, 'principal.html')
-
 def signup(request):
     if request.method == 'GET':
         return render(request, 'signup.html', {
@@ -26,7 +22,7 @@ def signup(request):
                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('principal')
+                return redirect('signin')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm,
@@ -40,7 +36,7 @@ def signup(request):
 @login_required 
 def salir(request):
     logout(request)
-    return redirect('principal')
+    return redirect('signin')
 
 def signin(request):
     if request.method == 'GET':
@@ -56,13 +52,21 @@ def signin(request):
             })
         else:
             login(request, user)
-            return redirect('principal')
+            return redirect('index')
         
 def password_reset_complete(request):
     return render(request, 'password_reset_complete')
+
+def index(request):
+    return render(request, 'index.html')
+
+def vertramite(request):   
+    return render(request, 'vertramite.html')
+
+def completarformulario(request):
+    return render(request,'formulario.html')
         
 def formulario(request):
     title = "Formulario VeSEP" 
-    #renderizo el HTML con los datos
     return render(request, "formulario.html", {"title": title}) 
 

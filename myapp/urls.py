@@ -5,7 +5,10 @@ from page import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.principal, name='principal'),
+    path('', views.signin, name='signin'),
+    path('index/', views.index, name='index'),
+    path('vertramite/', views.vertramite, name='vertramite'),
+    path('completarformulario/', views.completarformulario, name='completarformulario'), 
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('signup/', views.signup, name="signup"),

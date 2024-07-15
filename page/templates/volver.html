@@ -8,16 +8,23 @@
     <meta name="author" content="Agustin Pacheco">
     <title>VeSEP</title>
     <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
-      <link rel="stylesheet" href="{% static 'Libs/css/basedos.css' %}">
+      <link rel="stylesheet" href="{% static 'Libs/css/volver.css' %}">
+      <link rel="stylesheet" href="{% static 'Libs/css/footer.css' %}">
 </head>
 
 <body>
     <nav>
+        <ul>
             <li class="right">
-                <a href="/">Volver<a>
-            </li>    
+                <a href="/">Volver</a>
+            </li>
+        </ul>
     </nav>
+
     {% block content %}
     {% endblock  %}
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
 </body>
 </html>

@@ -1,4 +1,3 @@
-    {% extends "basedos.html" %}
     {% load static %}
 
     {% block content %}
@@ -7,12 +6,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Formulario VeSEP</title>
-        <link rel="stylesheet" href="{% static 'styles/form.css' %}">
+        <title>Formulario</title>
+        <link rel="stylesheet" href="{% static 'Libs/css/form.css' %}">
     </head>
     <body>
         <h8> PROVINCIA DEL CHUBUT </h8>
-        <h7> Direccion General de Catastro e Información Territorial</h7>
+        <h7> Dirección General de Catastro e Información Territorial</h7>
         <h6> CERTIFICADO DE VERIFICACIÓN DE SUBSISTENCIA DE ESTADO PARCELARIO (VeSEP) UNIDADES FUNCIONES / UNIDADES COMPLEMENTARIAS </h6>
        
             <section class="datosFisicos">
@@ -243,15 +242,14 @@
             </div>
         </div>
 
-        <script src="{% static 'js/botones/borrar.js' %}" type="module"></script>
-        <script src="{% static 'js/botones/label.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/actual.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/antecedente.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/anterior.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/matricula.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/persona.js' %}" type="module"></script>
-         <script src="{% static 'js/secciones/tomo.js' %}" type="module"></script>
-
+        <script src="{% static 'Libs/js/botones/borrar.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/botones/label.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/actual.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/antecedente.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/anterior.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/matricula.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/persona.js' %}" type="module"></script>
+         <script src="{% static 'Libs/js/secciones/tomo.js' %}" type="module"></script>
     </body>
     {% endblock %}
     </html>
