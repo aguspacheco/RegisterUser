@@ -1,12 +1,11 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
   <div class="centrado">
     <h1>¡Bienvenido {{ user.username }}!</h1>
     <p>Última conexión: {{ user.date_joined }}</p>
     <div>
       <a href="{% url 'vertramite' %}" class="btn btn-primary">Ver Trámite</a>
-      <a href="{% url 'completarformulario' %}" class="btn btn-primary">Completar Formulario</a>
+      <a href="{% url 'formulario' %}" class="btn btn-primary">Completar Formulario</a>
     </div>
   </div>
 {% endblock %}
