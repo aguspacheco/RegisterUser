@@ -1,5 +1,5 @@
 # VeSEP
-<img height="100" alt="VeSEP" width="100%" src="README/marquee.svg/>
+<img height="100" alt="VeSEP" width="100%" src="README/marquee.svg"/>
 
 <div>
 
