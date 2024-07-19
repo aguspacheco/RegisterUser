@@ -1,11 +1,31 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
+    <title>VeSEP</title>
+    <link rel="stylesheet" href="{% static 'Libs/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'Libs/css/footer.css' %}">
+</head>
+
+<body>
+
   <div class="centrado">
     <h1>¡Bienvenido {{ user.username }}!</h1>
     <p>Última conexión: {{ user.date_joined }}</p>
     <div>
-      <a href="{% url 'vertramite' %}" class="btn btn-primary">Ver Trámite</a>
-      <a href="{% url 'formulario' %}" class="btn btn-primary">Completar Formulario</a>
+      <a href="{% url 'vertramite' %}" class="btn">Ver Trámite</a>
+      <a href="{% url 'formulario' %}" class="btn">Completar Formulario</a>
     </div>
   </div>
 {% endblock %}
+<footer>
+  {% include 'footer.html' %}
+</footer>
+</body>
+</html>
