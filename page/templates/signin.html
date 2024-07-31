@@ -7,7 +7,12 @@
     <p>Ingresa tu nombre de usuario y contraseña para poder acceder al sitio.</p>
 </header>
 
-    {{ error }}
+{% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
 
 <section class="formularioIngreso">
     <form action="{% url 'signin' %}" method="POST">
@@ -20,4 +25,5 @@
         <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
     </form>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock  %}

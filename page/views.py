@@ -16,13 +16,24 @@ def signup(request):
             'form': UserCreationForm
         })
     else:
+        username = request.POST['username']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+
+        if not username or not password1 or not password2:
+            error = 'Por favor, completa todos los campos para poder registrarse'
+            return render(request, 'signup.html', {
+                'form': UserCreationForm,
+                'error': error
+            })
+
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.create_user(username=request.POST['username'],
                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('signin')
+                return redirect('index')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm,
@@ -44,11 +55,22 @@ def signin(request):
             'form': AuthenticationForm
         })
     else:
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
+        username = request.POST['username']
+        password = request.POST['password']
+
+        if not username or not password:
+            error = 'Por favor, completa todos los campos'
             return render(request, 'signin.html', {
                 'form': AuthenticationForm,
-                'error': 'El usuario o la contraseña es incorrecta'
+                'error': error
+            })
+
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            error = 'El usuario o la constraseña es incorrecta'
+            return render(request, 'signin.html', {
+                'form': AuthenticationForm,
+                'error': error
             })
         else:
             login(request, user)

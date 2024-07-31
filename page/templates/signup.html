@@ -8,7 +8,12 @@
     </p>
 </header>
 
-{{error}}
+{% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
 
 <section class="formularioRegistro">
     <form action="{% url 'signup' %}" method="POST">
@@ -24,4 +29,5 @@
         </button>
     </form>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 {% endblock  %} 
