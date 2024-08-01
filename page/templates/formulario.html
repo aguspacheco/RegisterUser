@@ -25,7 +25,12 @@
                             <div class ="elemento">
                                 <label for="ejido"></label>
                                 <select id="ejido" name="ejido">
-                            </div>
+                                    <option value="" disabled selected>Ejido</option>
+                                    {% for ejido in ejidos %}
+                                    <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>
+                                    {% endfor %}
+                                </select>   
+                            </div> 
 
                             <div class="elemento">
                                 <label for="chacra"></label>

@@ -92,3 +92,6 @@ def formulario(request):
     title = "Formulario VeSEP" 
     return render(request, "formulario.html", {"title": title}) 
 
+def ejidos_view(request):
+    ejidos = Ejido.objects.all()
+    return render(request, 'formulario.html', {'ejidos': ejidos})

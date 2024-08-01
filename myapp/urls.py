@@ -13,7 +13,7 @@ urlpatterns = [
     path('signup/', views.signup, name="signup"),
     path('logout/', views.salir, name="logout"),
     path('signin/', views.signin, name="signin"),
-    path('formulario/', views.formulario, name='formulario'),
+    path('formulario/', views.ejidos_view, name='formulario'),
     path('salir/', views.salir, name='salir'),
     path('login/', LoginView.as_view(template_name='principal.html'), name='login'),  
 
