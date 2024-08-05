@@ -25,10 +25,57 @@ p {
 .formulario {
     background-color: #fff;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0px 0px 8px #14213d;
     margin-top: 10px;
+}
+
+#formularioAnterior {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #14213d;
+    margin-top: 10px;
+} 
+
+select {
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; 
+    background-color: transparent;
+    width: 100%;
+    padding: 8px;
+}
+
+select:focus + .placeholder {
+    display: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+#ejido option {
+    color: #999;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.elemento {
+    width: 30%;
+}
+
+.elemento label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="text"],
@@ -36,14 +83,13 @@ input[type="number"],
 input[type="date"] {
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
-    width: 200px; 
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 90%; 
+    padding: 8px;
 }
 
 label {
     font-size: 14px;
-    color: #333;
+    color: #999;
     margin-top: 10px;
     display: block;
     position: absolute;
@@ -53,7 +99,7 @@ label {
 }
 
 input::placeholder {
-    color: #999;
+    color: #333;
     font-size: 14px;
 }
 
@@ -83,25 +129,6 @@ input:placeholder-shown + label {
     pointer-events: none;
 }
 
-select {
-    
-    font-size: 16px;
-    width: 100%;
-    height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    appearance: none; 
-    background-color: transparent;
-}
-
-select:focus + .placeholder {
-    display: none;
-}
-
-select:focus {
-    outline: none;
-}
-
 .elemento {
     position: relative; 
 }
@@ -129,18 +156,6 @@ legend {
 
 .fila {
     display: flex;
-}
-
-
-#ejido, #localidad {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #1d1c1c;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0,15 ease-in-out, box-shadow 0.15s ease-in-out; 
 }
 
 .logo {
@@ -180,14 +195,6 @@ legend {
 .botonEnviar,
 .botonCancelar {
     margin: 0 5px;
-}
-
-.enviar-btn {
-    background-color: #0066ff;
-}
-
-.cancelar-btn {
-    background-color: #e63946;
 }
 
 .btn:hover {
