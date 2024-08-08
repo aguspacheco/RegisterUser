@@ -28,15 +28,9 @@ p {
     border-radius: 10px;
     box-shadow: 0px 0px 8px #14213d;
     margin-top: 10px;
-}
-
-#formularioAnterior {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 8px #14213d;
-    margin-top: 10px;
 } 
+
+
 
 select {
     font-size: 14px;
@@ -70,6 +64,7 @@ select:focus {
 
 .elemento {
     width: 30%;
+    position: relative;   
 }
 
 .elemento label {
@@ -129,9 +124,7 @@ input:placeholder-shown + label {
     pointer-events: none;
 }
 
-.elemento {
-    position: relative; 
-}
+
 
 .alert-danger {
     background-color: #d9534f; 
@@ -152,10 +145,6 @@ input:placeholder-shown + label {
 legend {
     font-weight: bold;
     margin-bottom: 15px;
-}
-
-.fila {
-    display: flex;
 }
 
 .logo {

@@ -82,9 +82,15 @@
                         <legend>Nomenclatura Catastral Actual</legend>
 
                         <div class="fila">
-                            <div class="elemento">
+                            <div class ="elemento">
                                 <label for="ejido"></label>
-                            </div>
+                                <select id="ejido" name="ejido">
+                                    <option value="" disabled selected>Ejido</option>
+                                    {% for ejido in ejidos %}
+                                    <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>
+                                    {% endfor %}
+                                </select>   
+                            </div> 
         
                             <div class="elemento">
                                 <label for="circunscripcion"></label>
@@ -133,117 +139,111 @@
                         </div>
                     </form>    
         
-                <form class="formulario" id="formularioAntecedente">
-                    <legend>Antecedente Catastral</legend>
-
-                    <div class="fila">
-                        <div class="elemento">
-                            <label for="expediente"></label>
-                            <input type="text" id="expediente" min="0" placeholder="Expediente">
-                        </div>
-
-                        <div class="elemento">
-                            <label for="plano"></label>
-                            <input type="number" id="plano" min="0" placeholder="Plano">
-                        </div>
-                    </div>
-
-                    <div class="fila">        
-                        <div class="elemento">
-                            <label for="tomo"></label>
-                            <input type="number" id="tomo" min="0" placeholder="Tomo">
-                        </div>
-
-                        <div class="elemento">
-                            <label for="folio"></label>
-                            <input type="number" id="folio" min="0" placeholder="Folio">
-                        </div>
-                    </div>
-                </form>
-            </fieldset>    
-        </section>
-
-            <section class="datosJuridicos">
-                <fieldset id="contenedorJuridicos">
-                    <h5><u>DATOS JURIDICOS DEL INMUEBLE</u></h5>
-            
-                    <form class="formulario" id="formularioPersona">
-                        <div class="fila">
-                            <div class="elemento">
-                                <label for="apellido"></label>
-                                <input type="text" id="apellido" placeholder="Apellido y nombre o razón social">
+                    <form class="formulario" id="formularioAntecedente">
+                        <legend>Antecedente Catastral</legend>
+                    
+                        <div class="fila" id="fila-antecedente-1">
+                            <div class="elemento" id="elemento-expediente">
+                                <label for="expediente"></label>
+                                <input type="text" id="expediente" min="0" placeholder="Expediente">
                             </div>
-                            
-                            <div class="elemento">
-                                <label for="calle"></label>
-                                <input type="text" id="calle" placeholder="Calle">
-                            </div>
-
-                            <div class="elemento">
-                                <label for="numero"></label>
-                                <input type="number" id="numero" min="0" placeholder="Nº">
+                    
+                            <div class="elemento" id="elemento-plano">
+                                <label for="plano"></label>
+                                <input type="number" id="plano" min="0" placeholder="Plano">
                             </div>
                         </div>
                     
-                        <div class="elemento">
-                            <label for="localidad"></label>
-                            <div class="elemento fila-2">
-                                <label for="localidad"></label>
-                                <input type="text" id="localidad" min="0" placeholder="Localidad">
-                            </div>
-                        </div>
-
-                        <div class="elemento">
-                            <label for="cuit"></label>
-                            <div class="elemento fila-2">
-                                <label for="cuit"></label>
-                                <input type="text" id="cuit" min="0" placeholder="cuit">
-                            </div>
-                        </div>
-                    </form>
-                
-                    <form class="formulario" id="formularioTomo">
-                        <div class="fila">
-                            <div class="elemento">
+                        <div class="fila" id="fila-antecedente-2">
+                            <div class="elemento" id="elemento-tomo">
                                 <label for="tomo"></label>
                                 <input type="number" id="tomo" min="0" placeholder="Tomo">
                             </div>
-
-                            <div class="elemento">
+                    
+                            <div class="elemento" id="elemento-folio">
                                 <label for="folio"></label>
                                 <input type="number" id="folio" min="0" placeholder="Folio">
                             </div>
                         </div>
+                    </form>
+                </fieldset>
                     
-                        <div class="fila">
-                            <div class="elemento">
-                                <label for="finca"></label>
-                                <input type="number" id="finca" min="0" placeholder="Finca">
-                            </div>
-
-                            <div class="elemento">
-                                <label for="fecha"></label>
-                                <input type="date" id="fechaJuridicos">
-                            </div>
-                        </div>
-                    </form>
-
-                    <form class="formulario" id="formularioMatricula">
-                        <div class="fila">
-                            <div class="elemento">
-                                <label for="matricula"><label>
-                                <input type="text" id="matricula" min="0" placeholder="Matricula">
-                            </div>
-
-                            <div class="elemento">
-                                <label for="fecha"></label>
-                                <input type="date" id="fechaMatricula" placeholder="fecha">
-                            </div>  
-                        </div>                  
-                    </form>
-            </fieldset>
-        </section>
-
+                    <section class="datosJuridicos">
+                        <fieldset id="contenedorJuridicos">
+                            <h5><u>DATOS JURIDICOS DEL INMUEBLE</u></h5>
+                            <form class="formulario" id="formularioPersona">
+                                <div class="fila" id="fila-persona-1">
+                                    <div class="elemento" id="elemento-apellido">
+                                        <label for="apellido"></label>
+                                        <input type="text" id="apellido" placeholder="Apellido y nombre">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-calle">
+                                        <label for="calle"></label>
+                                        <input type="text" id="calle" placeholder="Calle">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-numero">
+                                        <label for="numero"></label>
+                                        <input type="number" id="numero" min="0" placeholder="Nº">
+                                    </div>
+                                </div>
+                    
+                                <div class="fila" id="fila-persona-2">
+                                    <div class="elemento" id="elemento-localidad">
+                                        <label for="localidad"></label>
+                                        <input type="text" id="localidad" placeholder="Localidad">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-cuit">
+                                        <label for="cuit"></label>
+                                        <input type="text" id="cuit" placeholder="CUIT">
+                                    </div>
+                                </div>
+                            </form>
+                    
+                            <form class="formulario" id="formularioTomo">
+                                <div class="fila" id="fila-tomo-1">
+                                    <div class="elemento" id="elemento-tomo-tomo">
+                                        <label for="tomo"></label>
+                                        <input type="number" id="tomo" min="0" placeholder="Tomo">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-tomo-folio">
+                                        <label for="folio"></label>
+                                        <input type="number" id="folio" min="0" placeholder="Folio">
+                                    </div>
+                                </div>
+                    
+                                <div class="fila" id="fila-tomo-2">
+                                    <div class="elemento" id="elemento-finca">
+                                        <label for="finca"></label>
+                                        <input type="number" id="finca" min="0" placeholder="Finca">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-fecha-tomo">
+                                        <label for="fechaJuridicos"></label>
+                                        <input type="date" id="fechaJuridicos">
+                                    </div>
+                                </div>
+                            </form>
+                    
+                            <form class="formulario" id="formularioMatricula">
+                                <div class="fila" id="fila-matricula-1">
+                                    <div class="elemento" id="elemento-matricula">
+                                        <label for="matricula"></label>
+                                        <input type="text" id="matricula" min="0" placeholder="Matricula">
+                                    </div>
+                    
+                                    <div class="elemento" id="elemento-fecha-matricula">
+                                        <label for="fechaMatricula"></label>
+                                        <input type="date" id="fechaMatricula" placeholder="Fecha">
+                                    </div>
+                                </div>
+                            </form>
+                        </fieldset>
+                    </section>
+                    
         <div class="botones">
             <div class="botonEnviar">
                 <button class="enviar-btn btn" id="enviar-btn"type="submit">Enviar</button>
