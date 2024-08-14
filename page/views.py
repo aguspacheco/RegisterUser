@@ -82,6 +82,9 @@ def password_reset_complete(request):
 def index(request):
     return render(request, 'index.html')
 
+def back(request):
+    return render(request, 'index.html')
+
 def vertramite(request):   
     return render(request, 'vertramite.html')
 
