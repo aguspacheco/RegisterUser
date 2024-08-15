@@ -15,7 +15,6 @@ urlpatterns = [
     path('signin/', views.signin, name="signin"),
     path('formulario/', views.ejidos_view, name='formulario'),
     path('salir/', views.salir, name='salir'),
-    path('back/', views.back, name='back'),
     path('login/', LoginView.as_view(template_name='principal.html'), name='login'),  
 
     # Recuperacion de contraseña  

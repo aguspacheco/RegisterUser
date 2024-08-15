@@ -30,8 +30,6 @@ p {
     margin-top: 10px;
 } 
 
-
-
 select {
     font-size: 14px;
     color: #333;
@@ -123,8 +121,6 @@ input:placeholder-shown + label {
     color: #999;
     pointer-events: none;
 }
-
-
 
 .alert-danger {
     background-color: #d9534f; 
