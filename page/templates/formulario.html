@@ -189,10 +189,16 @@
                                 </div>
                     
                                 <div class="fila" id="fila-persona-2">
-                                    <div class="elemento" id="elemento-localidad">
-                                        <label for="localidad"></label>
-                                        <input type="text" id="localidad" placeholder="Localidad">
+                                    <div class="elemento">
+                                      <label for="ejido"></label>
+                                      <select id="ejido" name="ejido">
+                                        <option value="" disabled selected>Localidad</option>
+                                        {% for ejido in ejidos %}
+                                        <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>
+                                        {% endfor %}
+                                      </select>
                                     </div>
+                                  </div>
                     
                                     <div class="elemento" id="elemento-cuit">
                                         <label for="cuit"></label>
@@ -261,7 +267,7 @@
          <script src="{% static 'Libs/js/secciones/matricula.js' %}" type="module"></script>
          <script src="{% static 'Libs/js/secciones/persona.js' %}" type="module"></script>
          <script src="{% static 'Libs/js/secciones/tomo.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/form/validacion.js'%}" type="module"></script>
+         <script src="{% static 'Libs/js/form/validacion.js' %}" type="module"></script>
     </body>
     {% endblock %}
     </html>
