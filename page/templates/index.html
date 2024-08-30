@@ -1,6 +1,4 @@
-{% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,19 +9,32 @@
     <title>VeSEP</title>
     <link rel="stylesheet" href="{% static 'Libs/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'Libs/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'Libs/css/navbar.css' %}">
 </head>
 
 <body>
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn"> <img class="usuario" src="{% static 'images/usuario.png' %}" alt="Descripción de la imagen"></button >
+      <div class="dropdown-content">
+        <a href="#">Información</a>
+        <a href="{% url 'vertramite' %}">Mis Trámites</a>
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+
+
   <div class="centrado">
     <h1><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35">  ¡Bienvenido {{ user.username }}!</h1>
     <div>
-      <a href="{% url 'vertramite' %}" class="btn">Ver Trámite</a>
       <a href="{% url 'formulario' %}" class="btn">Completar Formulario</a>
     </div>
   </div>
-{% endblock %}
-<footer>
-  {% include 'footer.html' %}
-</footer>
+  {% endblock %}
+
+  <footer>
+    {% include 'footer.html' %}
+  </footer>
 </body>
 </html>
