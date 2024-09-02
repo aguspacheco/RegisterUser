@@ -15,9 +15,9 @@
 <body>
   <div class="navbar">
     <div class="dropdown">
-      <button class="dropbtn"> <img class="usuario" src="{% static 'images/usuario.png' %}" alt="Descripción de la imagen"></button >
+      <button class="dropbtn"> <img class="usuario" src="{% static 'images/avatar.png' %}" alt="Descripción de la imagen"></button >
       <div class="dropdown-content">
-        <a href="#">Información</a>
+        <a href="{% url 'datos' %}">Datos</a>
         <a href="{% url 'vertramite' %}">Mis Trámites</a>
         <a href="{% url 'logout' %}">Cerrar Sesión</a>
       </div>

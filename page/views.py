@@ -7,7 +7,6 @@ from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from .models import Ejido
 
-
 def signup(request):
     if request.method == 'GET':
         return render(request, 'signup.html', {
@@ -81,6 +80,14 @@ def signin(request):
         else:
             login(request, user)
             return redirect('index')
+
+@login_required
+def datos_usuario(request):
+    user = request.user 
+    return render(request, 'datos.html', {
+        'username': user.username,
+        'email': user.email, 
+    })
         
 def password_reset_complete(request):
     return render(request, 'password_reset_complete')
@@ -90,6 +97,9 @@ def index(request):
 
 def vertramite(request):   
     return render(request, 'vertramite.html')
+
+def datos(request):
+    return render(request, 'datos.html')
 
 def completarformulario(request):
     return render(request,'formulario.html')

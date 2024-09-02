@@ -1,0 +1,31 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
+    <title>Datos Usuario</title>
+    <link rel="stylesheet" href="{% static 'Libs/css/datos.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Datos Usuario</h1>
+    </nav>
+
+
+    <div class="container">
+        <h3>{{ user.username }}</h3>
+        <h3>{{ user.email }}</h3>
+    </div>
+        
+
+    <div class="boton-conteiner">
+        <button class="editar-btn btn" id="editar-btn" type="button">Editar</button>
+        <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
+        <button class="guardar-btn btn" id="guardar-btn" type="button" disabled>Guardar</button>
+    </div>
+</body>
+{% endblock %}
+</html>
