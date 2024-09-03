@@ -16,15 +16,7 @@
 <body>
     <nav>
         <ul>   
-            {% if user.is_authenticated %}
-            <li>
-                <a href="{% url 'salir' %}">Cerrar Sección</a>
-            </li>  
-            {% else %}
-            <li>
-                <a href="{% url 'signup' %}">Registrarse</a>
-            </li>   
-            {% endif %}
+            <a href="{% url 'signup' %}">Registrarse</a>
         </ul>
     </nav> 
     {% block content %}

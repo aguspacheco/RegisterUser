@@ -1,3 +1,4 @@
+/*Estilo general para el cuerpo de la pagina*/
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-image: url('/static/images/fondo.png');
@@ -7,29 +8,19 @@ body {
   margin: 0;
 }
 
+/* Estilo para el elemento de navegación */
 nav {
   background-color: #333; 
   padding: 10px 0; 
   box-shadow: 0 2px 5px #ffc300; 
 }
 
+/* Elimina márgenes predeterminados para listas en el nav */
 nav ul, li {
   margin: 0;
-  padding: 0;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #fff; 
-  padding: 10px 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: transparent; 
-  color: #90e0ef;
-}
-
+/* Estilo para el encabezado */
 header {
   text-align: center;
   padding: 10px 0; 
@@ -38,6 +29,20 @@ header {
   box-shadow: 0 2px 5px #90e0ef; 
 }
 
+/* Estilo para los enlaces en el elemento de navegación */
+nav a {
+  color: #fff; 
+  text-decoration: none; 
+  padding: 5px 15px; 
+}
+
+/* Estilo para los enlaces cuando se pasa sobre alguno de ellos */
+nav a:hover {
+  color: #90e0ef; 
+  text-decoration: none; 
+}
+
+/* Estilo para el contenedor del formulario de ingreso */
 .formularioIngreso {
   background-color: #edede9;
   max-width: 250px;
@@ -48,6 +53,7 @@ header {
   text-align: center;
 }
 
+/* Estilo para el formulario */
 form {
   padding: 10px;
   display: flex;
@@ -55,6 +61,7 @@ form {
   gap: 15px;
 }
 
+/* Estilo para los campos de entrada dentro del formulario */
 form input {
   padding: 5px;
   border: 1px solid #ccc;
@@ -62,6 +69,7 @@ form input {
   font-size: 15px;
 }
 
+/* Estilo para los botones dentro del formulario y el botón de envío */
 form button,input[type="submit"] {
   padding: 10px 20px;
   background: linear-gradient(300deg, #3a86ff, #219ebc);
@@ -72,10 +80,12 @@ form button,input[type="submit"] {
   font-size: 14px; 
 }
 
+/* Estilo para los botones cuando se pasa sobre el boton */
 form button:hover, input[type="submit"]:hover {
   animation: pulse 0.7s ease-in-out;
 }
 
+/* Animación para los botones */
 @keyframes pulse {
   0% {
     transform: scale(1);

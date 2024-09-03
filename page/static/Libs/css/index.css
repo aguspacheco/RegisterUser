@@ -13,30 +13,43 @@ body {
     font-size: 15px;
     margin-bottom: 20px;
   }
-  
-  .quote {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .quote::before {
-    content: '"';
-    font-size: 24px;
-    color: #333;
-    margin-right: 10px;
-  }
-  
-  .quote::after {
-    content: '"';
-    font-size: 24px;
-    color: #333;
-    margin-left: 10px;
-  }
-  
-  .copyright {
+
+  .dropdown-content a {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/static/images/li.png');
     font-size: 14px;
-    color: #666;
-    text-align: center;
-    margin-top: 20px;
+    padding: 12px 16px;
+    color: #ffffff !important;
+    text-decoration: none; 
+    display: block; 
   }
+  
+  .centrado .btn {
+    color: #fff; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    border-radius: 5px; 
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3 ease; 
+  }
+
+  .centrado .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1) 
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+
+.centrado .btn:active {
+  animation: shake 0.5s; 
+  }
+  
+  
+ 
