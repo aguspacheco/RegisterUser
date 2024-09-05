@@ -10,6 +10,7 @@ urlpatterns = [
     path('vertramite/', views.vertramite, name='vertramite'),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('update-user/', views.update_user, name='update_user'),
     path('signup/', views.signup, name="signup"),
     path('logout/', views.salir, name="logout"),
     path('signin/', views.signin, name="signin"),

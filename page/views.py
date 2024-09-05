@@ -1,8 +1,11 @@
 # Importancion de modulos y funciones.
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from .models import Ejido
@@ -88,6 +91,22 @@ def datos_usuario(request):
         'username': user.username,
         'email': user.email, 
     })
+
+@csrf_exempt
+def update_user(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user = request.user
+
+        nuevo_nombre = data.get('username', user.username)
+        nuevo_email = data.get('email', user.email)
+
+        user.username = nuevo_nombre
+        user.email = nuevo_email
+        user.save()
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
         
 def password_reset_complete(request):
     return render(request, 'password_reset_complete')

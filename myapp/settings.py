@@ -131,11 +131,3 @@ GRAPH_MODELS={
     'all_applications': True,
     'group_models': True,
 }
-
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'dgceit@chubut.gov.ar'
-# EMAIL_HOST_PASSWORD = '1a2s3d4f'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

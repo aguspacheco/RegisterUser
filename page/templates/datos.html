@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{% csrf_token %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
     <title>Datos Usuario</title>
     <link rel="stylesheet" href="{% static 'Libs/css/datos.css' %}">
@@ -15,20 +16,22 @@
         <h1>Datos Usuario</h1>
     </nav>
 
-
     <div class="container">
         <div class="info-row">
-            <h2>Usuario:</h2><h3>{{ user.username }}</h3>
+            <h2>Nombre Usuario</h2>
+            <input type="text" id="usuario-input" value="{{ user.username }}" disabled>    
         </div>
         <div class="info-row">
-            <h2>Correo Electrónico:</h2><h3>{{ user.email }}</h3>
-        </div>
-        <div class="button-group">
-            <button class="editar-btn btn" id="editar-btn" type="button">Editar</button>
-            <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
-            <button class="guardar-btn btn" id="guardar-btn" type="button" disabled>Guardar</button>
+            <h2>Correo Electrónico</h2>
+            <input type="email" id="email-input" value="{{ user.email }}" disabled>
         </div>
     </div>
+    <div class="button-container">
+        <button class="editar-btn btn" id="editar-btn" type="button">Editar</button>
+        <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
+        <button class="guardar-btn btn" id="guardar-btn" type="button" disabled>Guardar</button>
+    </div>
+    <script src="{% static 'Libs/js/botones/editar.js' %}" type="module"></script>
 </body>
 {% endblock %}
 </html>
