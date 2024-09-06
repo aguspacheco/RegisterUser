@@ -5,20 +5,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailInput = document.getElementById('email-input');
 
     function getCsrfToken() {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        return csrfToken;
+        return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     }
 
-    editarBoton.addEventListener('click', function() {
-        usuarioInput.disabled = false;  
+    function habilitarEdicion() {
+        usuarioInput.disabled = false;
         emailInput.disabled = false;
         guardarBoton.disabled = false;
         editarBoton.disabled = true;
-    });
+    }
 
-    guardarBoton.addEventListener('click', function() {
-        const actualizarUsuario = usuarioInput.value;
-        const actualizarEmail = emailInput.value;
+    function deshabilitarEdicion() {
+        usuarioInput.disabled = true;
+        emailInput.disabled = true;
+        guardarBoton.disabled = true;
+        editarBoton.disabled = false;
+    }
+
+    function enviarDatosActualizados () {
+        const datosActualizados = {
+            username: usuarioInput.value,
+            email: emailInput.value
+        }
     
         fetch('/update-user/', {
             method: 'POST',
@@ -26,30 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCsrfToken()
             },
-            body: JSON.stringify({
-                username: actualizarUsuario,
-                email: actualizarEmail
-            })
+            body: JSON.stringify(datosActualizados)
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Error en la respuesta de la red');
             }
             return response.json();
         })
         .then(data => {
             if (data.success) {
                 alert('Información actualizada con éxito.');
-                usuarioInput.disabled = true;
-                emailInput.disabled = true;
-                guardarBoton.disabled = true;
-                editarBoton.disabled = false;
+                deshabilitarEdicion();
             } else {
                 alert('Error al actualizar la información.');
             }
         })
         .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Hubo un problema con la operación fetch', error);
         });
-    });
-});       
+    }
+    
+    editarBoton.addEventListener('click', habilitarEdicion);
+    guardarBoton.addEventListener('click', enviarDatosActualizados);
+});

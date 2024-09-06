@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{% csrf_token %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/avatar.png' %}"/>
+    <meta name="csrf-token" content="{{ csrf_token }}">
     <title>Datos Usuario</title>
     <link rel="stylesheet" href="{% static 'Libs/css/datos.css' %}">
 </head>
@@ -32,6 +32,7 @@
         <button class="guardar-btn btn" id="guardar-btn" type="button" disabled>Guardar</button>
     </div>
     <script src="{% static 'Libs/js/botones/editar.js' %}" type="module"></script>
+    <script src="{% static 'Libs/js/botones/volver.js' %}" type="module"></script>
 </body>
 {% endblock %}
 </html>
