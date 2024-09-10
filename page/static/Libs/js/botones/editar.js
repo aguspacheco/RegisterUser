@@ -1,13 +1,16 @@
+// obtiene referencias a los elementos del DOM
 document.addEventListener('DOMContentLoaded', function() {
     const editarBoton = document.getElementById('editar-btn');
     const guardarBoton = document.getElementById('guardar-btn');
     const usuarioInput = document.getElementById('usuario-input');
     const emailInput = document.getElementById('email-input');
 
+    // obtiene el token CSRF del meta tag en el documento
     function getCsrfToken() {
         return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     }
 
+    // habilita la edición en los campos de entrada y botones
     function habilitarEdicion() {
         usuarioInput.disabled = false;
         emailInput.disabled = false;
@@ -15,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         editarBoton.disabled = true;
     }
 
+    // deshabilita la edición en los campos de entrada y botones
     function deshabilitarEdicion() {
         usuarioInput.disabled = true;
         emailInput.disabled = true;
@@ -22,12 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
         editarBoton.disabled = false;
     }
 
+    // envia los datos actualizados al servidor
     function enviarDatosActualizados () {
+        // crea un objeto con los datos actuales de los campos de entrada
         const datosActualizados = {
             username: usuarioInput.value,
             email: emailInput.value
         }
-    
+        // envía los datos al servidor usando la API Fetch.
         fetch('/update-user/', {
             method: 'POST',
             headers: {
@@ -55,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // listeners para manejar clics
     editarBoton.addEventListener('click', habilitarEdicion);
     guardarBoton.addEventListener('click', enviarDatosActualizados);
 });
