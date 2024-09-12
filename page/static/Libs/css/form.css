@@ -9,17 +9,9 @@ body {
 
 h5 {
     text-align: center;
+    margin-top: 10px;
     color: #1d1c1c;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-h1 {
-    color: #0066cc;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.5;
 }
 
 .formulario {
@@ -27,7 +19,7 @@ p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px #14213d;
-    margin-top: 10px;
+    margin-top: 5px;
 } 
 
 select {
@@ -41,22 +33,12 @@ select {
     padding: 8px;
 }
 
-select:focus + .placeholder {
-    display: none;
-}
-
-select:focus {
-    outline: none;
-}
-
 #ejido option {
-    color: #999;
+    color: #333;
 }
 
 .fila {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -66,8 +48,11 @@ select:focus {
 }
 
 .elemento label {
-    display: block;
     margin-bottom: 5px;
+}
+
+legend {
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -84,11 +69,6 @@ label {
     font-size: 14px;
     color: #999;
     margin-top: 10px;
-    display: block;
-    position: absolute;
-    top: 5px; 
-    left: 10px;
-    transition: all 0.3s ease-in-out;
 }
 
 input::placeholder {
@@ -96,72 +76,6 @@ input::placeholder {
     font-size: 14px;
 }
 
-input:not(:placeholder-shown) {
-    padding-top: 8px; 
-}
-
-input:focus {
-    border-color: #0066cc;
-    box-shadow: 0 0 5px #0066cc80;
-}
-
-input:placeholder-shown + label {
-    top: 12px; 
-    left: 10px;
-    font-size: 14px;
-    color: #666;
-}
-
-.placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
-    font-size: 16px;
-    color: #999;
-    pointer-events: none;
-}
-
-.alert-danger {
-    background-color: #d9534f; 
-    color: #fff; 
-    padding: 10px;
-    border-radius: 5px;
-}
-
-#apellido {
-    font-size: 19px;
-}
-
-#calle, #numero {
-    font-size: 10px;
-    margin-top: 5px;
-}
-
-legend {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.logo {
-    position: absolute;
-    top: 20px; 
-    right: 20px; 
-    width: 150px; 
-    height: auto; 
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-.logo:hover {
-    box-shadow: 0 0 20px #fcbf49;
-}
-
-.label-active {
-    top: -6px;
-    font-size: 10px;
-    color: #1d3557;
-}
- 
 .botones {
     display: flex; 
     justify-content: center; 

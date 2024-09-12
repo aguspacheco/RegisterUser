@@ -199,8 +199,6 @@
                                         {% endfor %}
                                       </select>
                                     </div>
-                                  </div>
-                    
                                     <div class="elemento" id="elemento-cuit">
                                         <label for="cuit"></label>
                                         <input type="text" id="cuit" placeholder="CUIT">
@@ -264,15 +262,15 @@
                 type="button">Volver</button>
         </div>
 
+        <script src="{% static 'Libs/js/secciones/actual.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/secciones/antecedente.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/secciones/anterior.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/secciones/matricula.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/secciones/persona.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/secciones/tomo.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/form/validacion.js' %}" type="module"></script>
         <script src="{% static 'Libs/js/botones/borrar.js' %}" type="module"></script>
-        <script src="{% static 'Libs/js/botones/label.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/actual.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/antecedente.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/anterior.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/matricula.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/persona.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/secciones/tomo.js' %}" type="module"></script>
-         <script src="{% static 'Libs/js/form/validacion.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/botones/volver.js' %}" type="module"></script>
     </body>
     {% endblock %}
     </html>
