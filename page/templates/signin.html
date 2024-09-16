@@ -23,7 +23,10 @@
         <label for="id_contraseña">Contraseña:</label>
         <div class="password-container">
             <input type="password" id="id_contraseña" name="password">
-            <span class="toggle-password" onclick="visualizarPass()">👁️</span>
+            <span class="toggle-password" onclick="visualizarPass('{% static 'images/abrirojo.png' %}', '{% static 'images/cerrarojo.png' %}')">
+                <img id="toggle-icon" class="cerrarOjo" src="{% static 'images/cerrarojo.png' %}" alt="Cerrar Ojo" width="20">
+            </span>
+            
         </div>  
 
         <button type="submit">Iniciar Sesión</button>
