@@ -1,4 +1,4 @@
-function visualizarPass(abrirOjoUrl, cerrarOjoUrl) {
+function visualizarPass(abrirOjoUrl, cerrarOjoUrl   ) {
     var passwordInput = document.getElementById("id_contraseña");
     var passwordType = passwordInput.getAttribute("type");
     var toggleIcon = document.getElementById("toggle-icon");

@@ -24,7 +24,7 @@
                         <div class="fila">
                             <div class ="elemento">
                                 <label for="ejido"></label>
-                                <select id="ejido" name="ejido">
+                                <select id="ejidoAnterior" name="ejido">
                                     <option value="" disabled selected>Ejido</option>
                                     {% for ejido in ejidos %}
                                     <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>
@@ -34,12 +34,12 @@
 
                             <div class="elemento">
                                 <label for="chacra"></label>
-                                <input type="number" id="chacra" min="0"placeholder="Chacra">
+                                <input type="number" id="chacraAnterior" min="0"placeholder="Chacra">
                             </div>
 
                             <div class="elemento">
                                 <label for="fraccion"></label>
-                                <input type="number" id="fraccion" min="0"placeholder="Fracción">
+                                <input type="number" id="fraccionAnterior" min="0"placeholder="Fracción">
                             </div>
                         </div>
 
@@ -51,29 +51,29 @@
 
                             <div class="elemento">
                                 <label for="lote"></label>
-                                <input type="number" id="lote" min="0" placeholder="Lote">
+                                <input type="number" id="lote1" min="0" placeholder="Lote">
                             </div>
 
                             <div class="elemento">
                                 <label for="macizo"></label>
-                                <input type="number" id="macizo" min="0" placeholder="Macizo">
+                                <input type="number" id="macizoAnterior" min="0" placeholder="Macizo">
                             </div>
                         </div>
                     
                         <div class="fila">
                             <div class="elemento">
                                 <label for="manzana"></label>
-                                <input type="number" id="manzana" min="0" placeholder="Manzana">
+                                <input type="number" id="manzanaAnterior" min="0" placeholder="Manzana">
                             </div>
 
                             <div class="elemento">
                                 <label for="lote"></label>
-                                <input type="number" id="lote" min="0" placeholder="Lote">
+                                <input type="number" id="loteAnterior" min="0" placeholder="Lote">
                             </div>
 
                             <div class="elemento">
                                 <label for="unidad funcional"></label>
-                                <input type="number" id="unidadFuncional" min="0" placeholder="Unidad funcional">
+                                <input type="number" id="unidadFuncionalAnterior" min="0" placeholder="Unidad funcional">
                             </div>
                         </div>  
                 </form>
@@ -84,7 +84,7 @@
                         <div class="fila">
                             <div class ="elemento">
                                 <label for="ejido"></label>
-                                <select id="ejido" name="ejido">
+                                <select id="ejidoActual" name="ejido">
                                     <option value="" disabled selected>Ejido</option>
                                     {% for ejido in ejidos %}
                                     <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>
@@ -102,7 +102,6 @@
                                 <input type="number" id="sector" min="0" placeholder="Sector">
                             </div>    
                         </div>
-                        
                         
                         <div class="fila">
                             <div class="elemento">
@@ -192,7 +191,7 @@
                                 <div class="fila" id="fila-persona-2">
                                     <div class="elemento">
                                       <label for="ejido"></label>
-                                      <select id="ejido" name="ejido">
+                                      <select id="ejido3" name="ejido">
                                         <option value="" disabled selected>Localidad</option>
                                         {% for ejido in ejidos %}
                                         <option value="{{ ejido.id }}">{{ ejido.nombre }}</option>

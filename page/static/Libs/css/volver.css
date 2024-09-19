@@ -10,7 +10,7 @@ body {
   nav {
     background-color: #333; 
     padding: 10px 0; 
-    box-shadow: 0 2px 5px #ffc300; 
+    box-shadow: 0 2px 5px #fffb00ea; 
   }
   
   nav ul, li {

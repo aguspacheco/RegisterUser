@@ -22,6 +22,7 @@ body {
     color: #ffffff !important;
     text-decoration: none; 
     display: block; 
+    
   }
   
   .centrado .btn {
@@ -47,9 +48,14 @@ body {
     100% { transform: translateX(0); }
   }
 
-.centrado .btn:active {
-  animation: shake 0.5s; 
+  .centrado .btn:active {
+    animation: shake 0.5s; 
   }
+
+  footer {
+    margin-top: 250px; 
+  }
+  
   
   
  
