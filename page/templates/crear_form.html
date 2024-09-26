@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Crear Formulario</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="botonEnviar">
+        <button class="enviar-btn btn" id="enviar-btn" type="submit">Enviar</button>
+    </div>
+</form>
+{% endblock %}

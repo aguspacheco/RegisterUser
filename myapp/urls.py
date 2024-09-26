@@ -18,6 +18,8 @@ urlpatterns = [
     path('formulario/', views.ejidos_view, name='formulario'),
     path('salir/', views.salir, name='salir'),
     path('login/', LoginView.as_view(template_name='principal.html'), name='login'),  
+    path('crear-formulario/', views.crear_formulario, name='crear_formulario'),
+    path('formulario-exito/', views.formulario_exito, name="formulario_exito"),
 
     # Recuperacion de contraseña  
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='password_reset_form.html', email_template_name='password_reset_email.html'), name='password_reset'), 

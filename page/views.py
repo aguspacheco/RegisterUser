@@ -9,6 +9,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from .models import Ejido
+from .forms import FormularioForm
 
 def signup(request):
     if request.method == 'GET':
@@ -130,3 +131,19 @@ def formulario(request):
 def ejidos_view(request):
     ejidos = Ejido.objects.all()
     return render(request, 'formulario.html', {'ejidos': ejidos})
+
+@login_required
+def crear_formulario(request):
+    if request.method == 'POST':
+        form = FormularioForm(request.POST)
+        if form.is_valid():
+            formulario = form.save(commit=False)
+            formulario.usuario = request.user
+            formulario.save()
+            return redirect('formulario_exito')
+        else:
+            form = FormularioForm()
+        return render(request, 'crear_formulario.html', {'form': form})
+
+def formulario_exito(request):
+    return render(request, 'formulario_exito.html')

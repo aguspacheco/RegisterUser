@@ -23,7 +23,8 @@
                     
                         <div class="fila">
                             <div class ="elemento">
-                                <label for="ejido"></label>
+                                <label for="ejidoAnterior"></label>
+                                {{ form.ejidoAnterior }}
                                 <select id="ejidoAnterior" name="ejido">
                                     <option value="" disabled selected>Ejido</option>
                                     {% for ejido in ejidos %}

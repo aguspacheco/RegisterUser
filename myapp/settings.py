@@ -12,9 +12,16 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+LOGIN_URL = '/signup/'
+# [SECRET_KEY = config('SECRET_KEY', default='')]
+# DEBUG = config('DEBUG', default=False, cast=bool)
+LOGIN_REDIRECT_URL = 'index'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -27,9 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,11 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'selectable',
+    'django_extensions',
+    'fontawesomefree',
     'page'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
@@ -72,8 +81,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myapp.wsgi.application'
+MESASAGE_TAGS = {
+    messages.DEBUG: 'alert-dark',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
+WSGI_APPLICATION = 'myapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -106,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-AR'
 
 TIME_ZONE = 'UTC'
 
@@ -121,6 +137,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # Default primary key field type
