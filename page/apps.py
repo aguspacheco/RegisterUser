@@ -1,6 +1,8 @@
 from django.apps import AppConfig
-
+import os
 
 class PageConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
     name = 'page'
+    default_auto_field = 'django.db.models.BigAutoField'
+    path = os.path.dirname(__file__)
+

@@ -1,39 +1,45 @@
-// obtiene referencias a los elementos del DOM
 document.addEventListener('DOMContentLoaded', function() {
-    const editarBoton = document.getElementById('editar-btn');
-    const guardarBoton = document.getElementById('guardar-btn');
-    const usuarioInput = document.getElementById('usuario-input');
-    const emailInput = document.getElementById('email-input');
+    const elements = {
+        editarBoton: document.getElementById('editar-btn'),
+        guardarBoton: document.getElementById('guardar-btn'),
+        usuarioInput: document.getElementById('usuario-input'),
+        emailInput: document.getElementById('email-input'),
+        container: document.querySelector('.container')
+    };
 
-    // obtiene el token CSRF del meta tag en el documento
+    function limpiarMensajesPrevios() {
+        const mensajesPrevios = elements.container.querySelectorAll('.mensaje-exito, .mensaje-error');
+        mensajesPrevios.forEach(msg => msg.remove()); 
+    }
+    
     function getCsrfToken() {
         return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     }
 
-    // habilita la edición en los campos de entrada y botones
-    function habilitarEdicion() {
-        usuarioInput.disabled = false;
-        emailInput.disabled = false;
-        guardarBoton.disabled = false;
-        editarBoton.disabled = true;
+    function toggleEdicion(habilitar) {
+        const estado = !habilitar;
+        elements.usuarioInput.disabled = estado;
+        elements.emailInput.disabled = estado;
+        elements.guardarBoton.disabled = estado;
+        elements.editarBoton.disabled = habilitar;
     }
 
-    // deshabilita la edición en los campos de entrada y botones
-    function deshabilitarEdicion() {
-        usuarioInput.disabled = true;
-        emailInput.disabled = true;
-        guardarBoton.disabled = true;
-        editarBoton.disabled = false;
+    function mostrarMensaje(mensaje, tipo) {
+        limpiarMensajesPrevios();
+        const mensajeDiv = document.createElement('div');
+        mensajeDiv.className = tipo;
+        mensajeDiv.textContent = mensaje;
+        elements.container.appendChild(mensajeDiv)
+
+        setTimeout(() => mensajeDiv.remove(), 2000);
     }
 
-    // envia los datos actualizados al servidor
-    function enviarDatosActualizados () {
-        // crea un objeto con los datos actuales de los campos de entrada
+    function enviarDatosActualizados() {
         const datosActualizados = {
-            username: usuarioInput.value,
-            email: emailInput.value
-        }
-        // envía los datos al servidor usando la API Fetch.
+            username: elements.usuarioInput.value,
+            email: elements.emailInput.value
+        };
+
         fetch('/update-user/', {
             method: 'POST',
             headers: {
@@ -43,25 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(datosActualizados)
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la respuesta de la red');
-            }
+            if (!response.ok) throw new Error('Error en la respuesta de la red');
             return response.json();
         })
         .then(data => {
-            if (data.success) {
-                alert('Información actualizada con éxito.');
-                deshabilitarEdicion();
-            } else {
-                alert('Error al actualizar la información.');
-            }
+            const tipoMensaje = data.success ? 'mensaje-exito' : 'mensaje-error';
+            const mensaje = data.success ? 'Información actualizada con éxito.' : 'Error al actualizar la información.';
+            mostrarMensaje(mensaje, tipoMensaje);
+            if (data.success) toggleEdicion(false);
         })
         .catch(error => {
             console.error('Hubo un problema con la operación fetch', error);
+            mostrarMensaje('Hubo un problema con la operación. Intenta nuevamente', 'mensaje-error');
         });
     }
-    
+
     // listeners para manejar clics
-    editarBoton.addEventListener('click', habilitarEdicion);
-    guardarBoton.addEventListener('click', enviarDatosActualizados);
+    elements.editarBoton.addEventListener('click', () => toggleEdicion(true));
+    elements.guardarBoton.addEventListener('click', enviarDatosActualizados);
+
+    const volverBoton = document.getElementById('volver-btn');
+    volverBoton.addEventListener('click', () => {
+        window.history.back();
+    });
 });

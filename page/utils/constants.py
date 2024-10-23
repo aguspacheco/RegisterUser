@@ -1,7 +1,7 @@
 # -------------- ICONOS ------------------------------------------
-ICON_ERROR = '<i class="fa-solid fa-x fa-beat-fade"></i>'
-ICON_CHECK = '<i class="fa-solid fa-square-check fa-beat-fade"></i>'
-ICON_TRIANGLE = '<i class="fa-solid fa-triangle-exclamation fa-flip"></i>'
+ICON_ERROR = '<i class="fas fa-exclamation-triangle"></i>'
+ICON_CHECK = '<i class="fa-solid fa-square-check"></i>'
+ICON_TRIANGLE = '<i class="fa-solid fa-triangle-exclamation"></i>'
 
 # MENSAJE ESPECIFICO DE PERSONA
 MSJ_PERSONA_NO_EXISTE = 'La persona no está registrada en el sistema.'

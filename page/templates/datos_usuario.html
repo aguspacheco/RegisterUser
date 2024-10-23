@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token }}">
     <title>Datos Usuario</title>
     <link rel="stylesheet" href="{% static 'Libs/css/datos.css' %}">
+
 </head>
 <body>
     <nav class="navbar">
@@ -26,7 +27,7 @@
             <input type="email" id="email-input" value="{{ user.email }}" disabled>
         </div>
     </div>
-    
+
     <div class="button-container">
         <button class="editar-btn btn" id="editar-btn" type="button">Editar</button>
         <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
@@ -35,6 +36,7 @@
     
     <script src="{% static 'Libs/js/botones/editar.js' %}" type="module"></script>
     <script src="{% static 'Libs/js/botones/volver.js' %}" type="module"></script>
+
 </body>
 {% endblock %}
 </html>

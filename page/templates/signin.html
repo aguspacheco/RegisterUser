@@ -7,12 +7,16 @@
     <p>Ingresa tu nombre de usuario y contraseña para poder acceder al sitio.</p>
 </header>
 
-{% if error %}
-    <div class="alert alert-danger" role="alert">
-        {{ error }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-{% endif %}
+{% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ message|safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            {% endfor %}
+        </div>    
+    {% endif %}
 
 <section class="formularioIngreso">
     <form action="{% url 'signin' %}" method="POST">
@@ -26,7 +30,6 @@
             <span class="toggle-password" onclick="visualizarPass('{% static 'images/abrirojo.png' %}', '{% static 'images/cerrarojo.png' %}')">
                 <img id="toggle-icon" class="cerrarOjo" src="{% static 'images/cerrarojo.png' %}" alt="Cerrar Ojo" width="20">
             </span>
-            
         </div>  
 
         <button type="submit">Iniciar Sesión</button>

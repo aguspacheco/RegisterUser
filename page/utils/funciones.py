@@ -1,8 +1,7 @@
 from django.utils import timezone
 from django.forms import ValidationError
 from django.contrib import messages
-
-from utils.constants import ICON_CHECK, ICON_ERROR, ICON_TRIANGLE
+from .constants import ICON_CHECK, ICON_ERROR, ICON_TRIANGLE
 
 # ------------- FUNCIONES PARA MENSAJES ------------------
 def mensaje_error(request, message):

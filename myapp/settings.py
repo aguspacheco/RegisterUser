@@ -12,11 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 from decouple import config
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 LOGIN_URL = '/signup/'
 # [SECRET_KEY = config('SECRET_KEY', default='')]
@@ -47,7 +50,7 @@ INSTALLED_APPS = [
     'selectable',
     'django_extensions',
     'fontawesomefree',
-    'page'
+    'page.apps.PageConfig'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"

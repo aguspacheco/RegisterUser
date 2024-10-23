@@ -1,149 +1,147 @@
 # Importancion de modulos y funciones.
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
-from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
-from .models import Ejido
+from .models import Ejido, Formulario
 from .forms import FormularioForm
+from .utils.funciones import mensaje_exito, mensaje_error
 
+# Función para validaciones de campos vacios
+def validarCampos(request, *fields):
+    if not all(fields):
+        mensaje_error(request, 'Por favor, completa todos los campos.')
+        return False
+    return True
+
+# Función para validaciones de contraseñas
+def validarPass(request, password1, password2):
+    if password1 != password2:
+        mensaje_error(request, 'Las contraseñas no coinciden.')
+        return False
+    return True
+
+# Vista para el registro de usuarios
 def signup(request):
     if request.method == 'GET':
-        return render(request, 'signup.html', {
-            'form': UserCreationForm
-        })
-    else:
-        username = request.POST['username']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+        return render(request, 'signup.html', {'form': UserCreationForm()})
+    
+    username, email, password1, password2 = (request.POST.get(field) for field in ['username', 'email', 'password1', 'password2']) 
 
-        if not username or not email or not password1 or not password2:
-            error = 'Por favor, completa todos los campos para poder registrarse'
-            return render(request, 'signup.html', {
-                'form': UserCreationForm,
-                'error': error
-            })
+    if not validarCampos(request, username, email, password1, password2):
+        return render(request, 'signup.html', {'form': UserCreationForm()})
+    
+    if not validarPass(request, password1, password2):
+        return render(request, 'signup.html', {'form': UserCreationForm()})
 
-        if password1 == password2:
-            if User.objects.filter(email=email).exists():
-                return render(request, 'signup.html', {
-                    'form': UserCreationForm,
-                    'error': 'El correo electrónico ya está registrado'
-                })
-            try:
-                user = User.objects.create_user(username=username,
-                                                password=password1,
-                                                email=email)
-                user.save()
-                login(request, user)
-                return redirect('index')
-            except IntegrityError:
-                return render(request, 'signup.html', {
-                    'form': UserCreationForm,
-                    "error": 'El usuario ya se encuentra registrado'
-                })
-        else:
-            return render(request, 'signup.html', {
-                'form': UserCreationForm,
-                "error": 'Las contraseñas no coinciden'
-            })
-        
+    if User.objects.filter(email=email).exists():
+            mensaje_error(request, 'El correo electrónico ya está registrado.')
+            return render(request, 'signup.html', {'form': UserCreationForm()})
+
+    try:
+        user = User.objects.create_user(username=username, email=email, password=password1)
+        user.save()
+        login(request, user)
+        return redirect('index')
+    except IntegrityError:
+            mensaje_error(request, 'El nombre de usuario ya existe.')
+            return render(request, 'signup.html', {'form': UserCreationForm()})
+
+#Vistas para cerrar seccion
 @login_required 
 def salir(request):
     logout(request)
     return redirect('signin')
 
+#Vista para iniciar seccion
 def signin(request):
     if request.method == 'GET':
-        return render(request, 'signin.html', {
-            'form': AuthenticationForm
-        })
-    else:
-        username = request.POST['username']
-        password = request.POST['password']
+        return render(request, 'signin.html', {'form': AuthenticationForm()})
+    
+    # Obtén el nombre de usuario y la contraseña del formulario
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
-        if not username or not password:
-            error = 'Por favor, completa todos los campos'
-            return render(request, 'signin.html', {
-                'form': AuthenticationForm,
-                'error': error
-            })
+    # Verifica que ambos campos estén llenos
+    if not validarCampos(request, username, password):
+        return render(request, 'signin.html', {'form': AuthenticationForm()})
 
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            error = 'El usuario o la constraseña es incorrecta'
-            return render(request, 'signin.html', {
-                'form': AuthenticationForm,
-                'error': error
-            })
-        else:
-            login(request, user)
-            return redirect('index')
+    # Autentica al usuario por el nombre de usuario y contraseña
+    user = authenticate(request, username=username, password=password)
 
+    # Si la autenticación falla, muestra un mensaje de error
+    if user is None:
+        mensaje_error(request, 'El usuario o la contraseña es incorrecta.')
+        return render(request, 'signin.html', {'form': AuthenticationForm()})
+    
+    # Si la autenticación es exitosa, inicia sesión y redirige
+    login(request, user)
+    return redirect('index')
+
+
+# Vista para mostrar datos del usuario autenticado
 @login_required
 def datos_usuario(request):
     user = request.user 
-    return render(request, 'datos.html', {
-        'username': user.username,
-        'email': user.email, 
-    })
+    return render(request, 'datos_usuario.html', {'username': user.username,'email': user.email})
 
+# Vista para actualizar los datos del usuario
 @csrf_exempt
+@login_required
 def update_user(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        user = request.user
+        try:
+            data = json.loads(request.body)
+            user = request.user
+            user.username = data.get('username', user.username)
+            user.email = data.get('email', user.email)
+            user.save()
+            return JsonResponse({'success': True})
+        except Exception as e:
+            messages.error(request, f'Ocurrió un error al actualizar los datos: {str(e)}')
+            return JsonResponse({'success': False, 'error': 'Error en la actualización.'}, status=500)
+    
+    return JsonResponse({'success': False, 'error': 'Solicitud inválida.'}, status=400)
 
-        nuevo_nombre = data.get('username', user.username)
-        nuevo_email = data.get('email', user.email)
+def render_template(request, template_name):
+    return render(request, template_name)
 
-        user.username = nuevo_nombre
-        user.email = nuevo_email
-        user.save()
-
-        return JsonResponse({'success': True})
-    return JsonResponse({'success': False, 'error': 'Invalid request'}, status=400)
-        
 def password_reset_complete(request):
-    return render(request, 'password_reset_complete')
-
-def index(request):
-    return render(request, 'index.html')
+    return render_template(request, 'password_reset_complete.html')
 
 def vertramite(request):   
     return render(request, 'vertramite.html')
 
-def datos(request):
-    return render(request, 'datos.html')
-
 def completarformulario(request):
     return render(request,'formulario.html')
-        
-def formulario(request):
-    title = "Formulario VeSEP" 
-    return render(request, "formulario.html", {"title": title}) 
+
+def formulario_exito(request):
+    return render(request, 'formulario_exito.html')
+
+def index(request):
+    return render(request, 'index.html')
 
 def ejidos_view(request):
     ejidos = Ejido.objects.all()
     return render(request, 'formulario.html', {'ejidos': ejidos})
 
-@login_required
-def crear_formulario(request):
-    if request.method == 'POST':
-        form = FormularioForm(request.POST)
-        if form.is_valid():
-            formulario = form.save(commit=False)
-            formulario.usuario = request.user
-            formulario.save()
-            return redirect('formulario_exito')
-        else:
-            form = FormularioForm()
-        return render(request, 'crear_formulario.html', {'form': form})
+class CrearFormulario(CreateView):
+    model = Formulario
+    form_class = FormularioForm
+    template_name = 'crear_formulario.html'
 
-def formulario_exito(request):
-    return render(request, 'formulario_exito.html')
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        form.save()
+        mensaje_exito(self.request, 'El formulario se guardo correctamente.')
+        return redirect('formulario_exito')
+
+
