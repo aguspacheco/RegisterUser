@@ -1,6 +1,6 @@
-import { borrar } from "./borrar.js";
+import { borrar } from "../botones/borrar.js";
 
-const cancelarBtn = document.getElementById("cancelar-btn");
-cancelarBtn.addEventListener("click", () =>{
+const borrarBtn = document.getElementById("borrar-btn");
+borrarBtn.addEventListener("click", () =>{
     borrar("Persona");
 }); 

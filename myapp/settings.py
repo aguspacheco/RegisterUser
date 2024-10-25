@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 LOGIN_URL = '/signup/'
+LOGOUT_REDIRECT_URL = 'signin'
 # [SECRET_KEY = config('SECRET_KEY', default='')]
 # DEBUG = config('DEBUG', default=False, cast=bool)
 LOGIN_REDIRECT_URL = 'index'

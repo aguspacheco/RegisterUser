@@ -6,8 +6,8 @@ from page import views
 urlpatterns = [
     #Pagina principal e inicio de seccion
     path('', views.signin, name='signin'),
-    path('signup/', views.signup, name="signup"),
-    path('logout/', views.salir, name="logout"),
+    path('signup/', views.signup, name='signup'),
+    path('logout/', views.salir, name='logout'),
     path('signin/', views.signin, name="signin"),
     path('index/', views.index, name='index'),
 

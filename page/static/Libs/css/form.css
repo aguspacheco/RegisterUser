@@ -96,15 +96,15 @@ input::placeholder {
     color: #f8f9fa;
 }
 
-.cancelar-btn {
-    background-image: linear-gradient(to bottom, #df0b2e, #fd027f);
+.borrar-btn {
+    background-image: linear-gradient(to bottom, #c1121f, #d90429);
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.cancelar-btn:hover {
+.borrar-btn:hover {
     background-image: linear-gradient(to bottom, #FF69B4, #e42d4b); 
     color: #FFFFFF;
 }
