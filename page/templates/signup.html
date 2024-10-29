@@ -4,8 +4,7 @@
 {% block content %}
 <header>
     <h2>Registrarse</h2>
-    <p> Registrate con tu nombre y una contraseña para poder acceder al sitio. 
-    </p>
+    <p> Registrate con tu nombre y una contraseña para poder acceder al sitio. </p>
 </header>
 
 {% if messages %}
@@ -20,7 +19,7 @@
     {% endif %}
 
 <section class="formularioRegistro">
-    <form action="{% url 'signup' %}" method="POST">
+    <form action="{% url 'signup' %}" method="POST"> 
         {% csrf_token %}
         <label for="id_usuario">Nombre de Usuario:</label>
         <input type="text" id="id_usuario" name="username">

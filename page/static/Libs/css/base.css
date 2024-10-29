@@ -77,7 +77,6 @@ nav a:hover {
   
 /* Estilo para el formulario */
 form {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;

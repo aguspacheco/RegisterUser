@@ -19,23 +19,23 @@
     {% endif %}
 
 <section class="formularioIngreso">
-    <form action="{% url 'signin' %}" method="POST">
+    <form action="{% url 'signin' %}" method="POST" id="signin-form">
         {% csrf_token %}
-        <label for="id_usuario">Nombre de Usuario:</label>
+        <label for="id_usuario">Nombre de Usuario</label>
         <input type="text" id="id_usuario" name="username">
 
-        <label for="id_contraseña">Contraseña:</label>
+        <label for="id_contraseña">Contraseña</label>
         <div class="password-container">
             <input type="password" id="id_contraseña" name="password">
             <span class="toggle-password" onclick="visualizarPass('{% static 'images/abrirojo.png' %}', '{% static 'images/cerrarojo.png' %}')">
                 <img id="toggle-icon" class="cerrarOjo" src="{% static 'images/cerrarojo.png' %}" alt="Cerrar Ojo" width="20">
             </span>
-        </div>  
-
+        </div> 
+        
         <button type="submit">Iniciar Sesión</button>
         <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
     </form>
 </section>
 <script src="/static/Libs/js/botones/toogle.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></sc>
 {% endblock  %}

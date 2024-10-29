@@ -117,8 +117,8 @@ def render_template(request, template_name):
 def password_reset_complete(request):
     return render_template(request, 'password_reset_complete.html')
 
-def vertramite(request):   
-    return render(request, 'vertramite.html')
+def tramiteUser(request):   
+    return render(request, 'tramiteUser.html')
 
 def completarformulario(request):
     return render(request,'formulario.html')

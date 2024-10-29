@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/verTramite.png' %}" />
+    <title>Tus Trámites</title>
+    <link rel="stylesheet" href="{% static 'Libs/css/tramiteUser.css' %}">
+</head>
+    <body>
+    {% block content %}
+    <nav class="navbar">
+        <img class="logo" src="{% static 'images/verTramite.png' %}"
+        alt="Descripción de la imagen" widht='30'>
+        <h1>Hola {{ user.username }}, estos son tus tramites<h1>
+    </nav>
+
+    <div class="button-container">
+        <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
+    </div>
+
+    <script src="{% static 'Libs/js/botones/volver.js' %}" type="module"></script>
+    {% endblock  %}
+    </body>
+</html>

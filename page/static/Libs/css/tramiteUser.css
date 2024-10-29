@@ -1,0 +1,48 @@
+.navbar {
+    display: flex;
+    align-items: center; 
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+    
+.navbar .logo {
+    width: 25px;
+    height: auto;
+    margin-right: 10px; 
+}
+
+.navbar h1 {
+    margin: 0; 
+    font-size: 25px; 
+    color: #fff; 
+}
+
+.container {
+    max-width: 400px;
+    margin: 120px auto; 
+    padding: 50px;
+    background-color:#f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+}
+
+.button-container {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}

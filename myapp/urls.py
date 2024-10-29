@@ -13,7 +13,7 @@ urlpatterns = [
 
     #Vistas estaticas 
     path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete'),
-    path('vertramite/', views.vertramite, name='vertramite'),
+    path('tramiteUser/', views.tramiteUser, name='tramiteUser'),
     path('formulario/', views.ejidos_view, name='formulario'),
     path('formulario-exito/', views.formulario_exito, name="formulario_exito"),
 
