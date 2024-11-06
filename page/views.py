@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Ejido, Formulario
 from .forms import FormularioForm
 from .utils.funciones import mensaje_exito, mensaje_error
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 # Función para validaciones de campos vacios
 def validarCampos(request, *fields):
@@ -117,11 +119,18 @@ def render_template(request, template_name):
 def password_reset_complete(request):
     return render_template(request, 'password_reset_complete.html')
 
+@login_required
 def tramiteUser(request):   
-    return render(request, 'tramiteUser.html')
+    formularios = Formulario.objects.filter(usuario=request.user).order_by('-fecha_creacion')
+    tiene_formularios = formularios.exists()
+    return render(request, 'tramiteUser.html', {
+        'formularios': formularios,
+        'tiene_formularios': tiene_formularios
+    })
 
 def completarformulario(request):
-    return render(request,'formulario.html')
+    fecha_actual = timezone.now().date().strftime()
+    return render(request,'formulario.html', {'fecha_actual': fecha_actual})
 
 def formulario_exito(request):
     return render(request, 'formulario_exito.html')
@@ -139,9 +148,19 @@ class CrearFormulario(CreateView):
     template_name = 'crear_formulario.html'
 
     def form_valid(self, form):
+        fecha_actual = timezone.now().date()
+        fecha_juridicos = form.cleaned_data.get('fechaJuridicos')
+        fecha_matricula = form.cleaned_data.get("fechaMatricula")
+
+        if fecha_juridicos and fecha_juridicos > fecha_actual:
+            form.add_error('fechaJuridicos', 'La fecha no puede ser en el futuro')
+            return self.form_invalid(form)
+        
+        if fecha_matricula and fecha_matricula > fecha_actual:
+            form.add_error('fechaMatricula', 'La fecha no puede ser en el futuro')
+            return self.form_invalid(form)
+
         form.instance.usuario = self.request.user
         form.save()
         mensaje_exito(self.request, 'El formulario se guardo correctamente.')
         return redirect('formulario_exito')
-
-

@@ -13,8 +13,7 @@
     <body>
         <h8> PROVINCIA DEL CHUBUT </h8>
         <h7> Dirección General de Catastro e Información Territorial</h7>
-        <h8> Certificado de verificación de subsistencia de estado parcelario (VeSEP) unidades funcionales / unidades complementarias </h8>
-       
+        <h7> Certificado de verificación de subsistencia de estado parcelario (VeSEP) unidades funcionales / unidades complementarias </h7>
             <section class="datosFisicos">
                 <fieldset id="contenedorDatosFisicos">
                     <h5><u>DATOS FISICOS DEL INMUEBLE</u></h5>
@@ -227,7 +226,8 @@
                     
                                     <div class="elemento" id="elemento-fecha-tomo">
                                         <label for="fechaJuridicos"></label>
-                                        <input type="date" id="fechaJuridicos">
+                                        <input type="date" id="fechaJuridicos" name="fechaJuridicos" max="{{ fecha_actual }}" required>
+                                        <span id="errorFechaJuridicos">La fecha no puede ser mayor a la fecha actual.</span>
                                     </div>
                                 </div>
                             </form>
@@ -241,7 +241,8 @@
                     
                                     <div class="elemento" id="elemento-fecha-matricula">
                                         <label for="fechaMatricula"></label>
-                                        <input type="date" id="fechaMatricula" placeholder="Fecha">
+                                        <input type="date" id="fechaMatricula" name="fechaMatricula" max="{{ fecha_actual }}" required>
+                                        <span id="errorFechaMatricula">La fecha no puede ser mayor a la fecha actual</span>
                                     </div>
                                 </div>
                             </form>

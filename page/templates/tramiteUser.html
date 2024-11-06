@@ -16,6 +16,19 @@
         <h1>Hola {{ user.username }}, estos son tus tramites<h1>
     </nav>
 
+    <div class="container">
+        {% if tiene_formularios %}
+            <h2>Listado de tramites:</h2>
+            <ul>
+                {% for formulario in formularios %}
+                    <l1>Fecha de carga: {{ formulario.fecha_creacion|date:"d/m/Y" }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h3>No tienes ningún formulario cargado.</h3>
+        {% endif %}
+    </div>
+
     <div class="button-container">
         <button class="volver-btn btn" id="volver-btn" type="button">Volver</button>
     </div>

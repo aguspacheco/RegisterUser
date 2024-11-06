@@ -37,6 +37,7 @@ class Formulario(models.Model):
     matricula = models.CharField(max_length=50, null=True, blank=True)
     fecha_juridicos = models.DateField(null=True, blank=True)
     fecha_matricula = models.DateField(null=True, blank=True)
+    fecha_creacion = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"Formulario de {self.usuario.username}"

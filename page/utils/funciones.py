@@ -18,15 +18,9 @@ def validate_no_mayor_actual(value):
     if value > timezone.now().date():
         raise ValidationError('La fecha no puede ser en el futuro.')
 
-def handle_existing_person(self, form):
-    dni = form.cleaned_data["dni"]
-    messages.error(self.request, f'{ICON_ERROR} ERROR: Ya existe una persona registrada en el sistema con el mismo DNI.')
-    return self.render_to_response(self.get_context_data(form=form))
-
 # -------------------- PDF -----------------
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-
 def registrar_fuentes():
     pdfmetrics.registerFont(TTFont('Calibri', 'calibri.ttf'))
     pdfmetrics.registerFont(TTFont('TituloFont', 'times.ttf'))
