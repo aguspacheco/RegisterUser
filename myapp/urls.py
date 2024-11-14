@@ -22,9 +22,9 @@ urlpatterns = [
     path('update-user/', views.update_user, name='update_user'),
     path('ejidos/', views.ejidos_view, name='ejidos'),
     path('crear-formulario/', views.CrearFormulario.as_view(), name='crear_formulario'),
-
+    path('date_form/', views.date_form, name='date_form'),
     
     #Administracion
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-]
+]   

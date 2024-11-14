@@ -2,6 +2,7 @@ from django import forms
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from .models import Formulario
+from datetime import date
 
 class FormularioForm(forms.ModelForm):
     class Meta:
@@ -24,13 +25,9 @@ class FormularioForm(forms.ModelForm):
             'tomoJuridicos', 'FolioJuridicos', 'matricula', 'fecha_juridicos', 'fecha_matricula'
         ]
 
-    # Ejemplo de validaciones personalizadas
-    def clean_cuit(self):
-        cuit = self.cleaned_data.get('cuit')
-        if len(str(cuit)) != 11:  
-            raise ValidationError('El CUIT debe tener 11 dígitos.')
-        return cuit
-
+    class FechaForm(forms.Form):
+        fecha_fin = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+        
     def clean_fecha_juridicos(self):
         fecha_juridicos = self.cleaned_data.get('fecha_juridicos')
         if fecha_juridicos and fecha_juridicos > timezone.now().date():
@@ -48,3 +45,10 @@ class FormularioForm(forms.ModelForm):
         if numero < 0:
             raise ValidationError('El número debe ser mayor o igual a cero.')
         return numero
+    
+ # Ejemplo de validaciones personalizadas
+    def clean_cuit(self):
+        cuit = self.cleaned_data.get('cuit')
+        if len(str(cuit)) != 11:  
+            raise ValidationError('El CUIT debe tener 11 dígitos.')
+        return cuit

@@ -226,8 +226,8 @@
                     
                                     <div class="elemento" id="elemento-fecha-tomo">
                                         <label for="fechaJuridicos"></label>
-                                        <input type="date" id="fechaJuridicos" name="fechaJuridicos" max="{{ fecha_actual }}" required>
-                                        <span id="errorFechaJuridicos">La fecha no puede ser mayor a la fecha actual.</span>
+                                        <input type="date" id="fechaJuridicos" name="fechaJuridicos">
+                                        <span id="juridicosError" class="error-message" style="display: none;">La fecha de no puede ser futura.</span>
                                     </div>
                                 </div>
                             </form>
@@ -241,8 +241,8 @@
                     
                                     <div class="elemento" id="elemento-fecha-matricula">
                                         <label for="fechaMatricula"></label>
-                                        <input type="date" id="fechaMatricula" name="fechaMatricula" max="{{ fecha_actual }}" required>
-                                        <span id="errorFechaMatricula">La fecha no puede ser mayor a la fecha actual</span>
+                                        <input type="date" id="fechaMatricula" name="fechaMatricula" >
+                                        <span id="matriculaError" class="error-message" style="display: none;">La fecha no puede ser futura.</span>
                                     </div>
                                 </div>
                             </form>
@@ -272,6 +272,7 @@
         <script src="{% static 'Libs/js/form/validacion.js' %}" type="module"></script>
         <script src="{% static 'Libs/js/botones/borrar.js' %}" type="module"></script>
         <script src="{% static 'Libs/js/botones/volver.js' %}" type="module"></script>
+        <script src="{% static 'Libs/js/form/fechas.js' %}" type="module"></script>
     </body>
     {% endblock %}
     </html>

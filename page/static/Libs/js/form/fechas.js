@@ -1,26 +1,48 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const hoy = new Date().toISOString().split('T')[0];
+document.addEventListener('DOMContentLoaded', function () {
+    const juridicosInput = document.getElementById('fechaJuridicos');
+    const matriculaInput = document.getElementById('fechaMatricula');
+    const juridicosError = document.getElementById('juridicosError');
+    const matriculaError = document.getElementById('matriculaError');
 
-    const fechaJuridicos = document.getElementById("fechaJuridicos");
-    const errorFechaJuridicos = document.getElementById("errorFechaJuridicos");
-    const fechaMatricula = document.getElementById("fechaMatricula");
-    const errorFechaMatricula = document.getElementById("errorFechaMatricula");
+    const hoy = new Date().toISOString().split("T")[0];
 
-    function validarFecha(input, errorElement) {
+    function validarDia(input, errorElement) {
         if (input.value > hoy) {
             errorElement.style.display = "inline";
-            input.setCustomValidity("Fecha no válida");
         } else {
             errorElement.style.display = "none";
-            input.setCustomValidity("");
         }
     }
-    
-    fechaJuridicos.addEventListener("input", function () {
-        validarFecha(fechaJuridicos, errorFechaJuridicos);
+
+    juridicosInput.addEventListener('change', function () {
+        validarDia(juridicosInput, juridicosError);
     });
 
-    fechaMatricula.addEventListener("input", function () {
-        validarFecha(fechaMatricula, errorFechaMatricula);
+    matriculaInput.addEventListener('change', function () {
+        validarDia(matriculaInput, matriculaError);
+    });
+
+    document.getElementById('formularioTomo').addEventListener('submit', function (e) {
+        let valid = true;
+
+        if (!validarDia(juridicosInput, juridicosError)) {
+            valid = false;
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
+    });
+
+    document.getElementById('formularioMatricula').addEventListener('submit', function (e) {
+        let valid = true;
+
+        if (!validarDia(matriculaInput, matriculaError)) {
+            valid = false;
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
     });
 });

@@ -15,7 +15,6 @@ from .models import Ejido, Formulario
 from .forms import FormularioForm
 from .utils.funciones import mensaje_exito, mensaje_error
 from django.utils import timezone
-from django.core.exceptions import ValidationError
 
 # Función para validaciones de campos vacios
 def validarCampos(request, *fields):
@@ -141,6 +140,23 @@ def index(request):
 def ejidos_view(request):
     ejidos = Ejido.objects.all()
     return render(request, 'formulario.html', {'ejidos': ejidos})
+
+def date_form(request):
+    if request.method == "POST":
+        selected_date = request.POST.get("date")
+        if selected_date:
+            selected_date = timezone.datetime.strptime(selected_date, "%Y-%m-%d").date()
+            today = timezone.now().date()
+
+            # Validación de fecha en el servidor
+            if selected_date > today:
+                messages.error(request, "No puedes elegir una fecha futura.")
+                return redirect("date_form")
+            else:
+                # Procesa la fecha (guarda en base de datos o lo que necesites hacer)
+                messages.success(request, "Fecha válida seleccionada.")
+                return redirect("date_form")
+    return render(request, "date_form.html")
 
 class CrearFormulario(CreateView):
     model = Formulario
