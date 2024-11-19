@@ -4,7 +4,7 @@
 {% block content %}
 <header>
     <h2>Iniciar Sesión</h2>
-    <p>Ingresa tu nombre de usuario y contraseña para poder acceder al sitio.</p>
+    <p>Ingresa tu nombre de usuario o correo electronico y contraseña para poder acceder al sitio.</p>
 </header>
 
 {% if messages %}
@@ -21,19 +21,26 @@
 <section class="formularioIngreso">
     <form action="{% url 'signin' %}" method="POST" id="signin-form">
         {% csrf_token %}
-        <label for="id_usuario">Nombre de Usuario</label>
-        <input type="text" id="id_usuario" name="username">
+        <div class="mb-3">
+            <img src="{% static 'images/escudo.png' %}" alt="Escudo" class="custom-img">
+            <label for="id_usuario" class="form-label">Nombre de Usuario o Correo Electrónico</label>
+            <input type="text" id="id_usuario" name="username" class="form-control" placeholder="usuario@ejemplo.com">
+        </div>
 
-        <label for="id_contraseña">Contraseña</label>
-        <div class="password-container">
-            <input type="password" id="id_contraseña" name="password">
-            <span class="toggle-password" onclick="visualizarPass('{% static 'images/abrirojo.png' %}', '{% static 'images/cerrarojo.png' %}')">
-                <img id="toggle-icon" class="cerrarOjo" src="{% static 'images/cerrarojo.png' %}" alt="Cerrar Ojo" width="20">
-            </span>
+        <div class="mb-3">
+            <label for="id_contraseña" class="form-label" placeholder="*******">Contraseña</label>
+            <div class="password-container position-relative">
+                <input type="password" id="id_contraseña" name="password">
+                <button type="button" class="toggle-password btn btn-link position-absolute top-50 end-0 translate-middle-y" onclick="visualizarPass()">
+                    <img id="toggle-icon" src="{% static 'images/cerrarojo.png' %}" alt="Ojo" width="20">
+                </button>
+            </div>
         </div> 
         
-        <button type="submit">Iniciar Sesión</button>
-        <a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a>
+        <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+        <div class="text-centermt-3">
+            <a href="{% url 'password_reset' %}" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+        </div>
     </form>
 </section>
 <script src="/static/Libs/js/botones/toogle.js"></script>

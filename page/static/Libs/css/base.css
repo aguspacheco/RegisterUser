@@ -9,15 +9,20 @@ body {
 
 /* Estilo para el elemento de navegación */
 nav {
-  background-color: #333; 
+  background-color: #00000080; 
   padding: 10px 0; 
-  box-shadow: 0 2px 5px #ffc300; 
+  box-shadow: 0 2px 5px #7678ed; 
 }
 
 /* Elimina márgenes predeterminados para listas en el nav */
 nav ul, li {
   margin: 0;
 }
+
+.custom-img {
+  max-width: 80px;
+}
+
 
 /* Estilo para el encabezado */
 header {
@@ -43,7 +48,7 @@ nav a:hover {
 
 /* Estilo para el contenedor del formulario de ingreso */
 .formularioIngreso {
-  background-color: #edede9;
+  background-color: #ffffff80;
   max-width: 250px;
   margin: 50px auto;
   padding: 20px;
@@ -118,4 +123,3 @@ form button:hover, input[type="submit"]:hover {
     transform: scale(1);
   }
 }
-

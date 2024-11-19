@@ -1,15 +1,12 @@
-function visualizarPass(abrirOjoUrl, cerrarOjoUrl   ) {
+function visualizarPass() {
     var passwordInput = document.getElementById("id_contraseña");
-    var passwordType = passwordInput.getAttribute("type");
     var toggleIcon = document.getElementById("toggle-icon");
     
-    if (passwordType === "password") {
-        passwordInput.setAttribute("type", "text");
-        toggleIcon.src = abrirOjoUrl;
-        toggleIcon.alt = "Abrir Ojo"
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleIcon.src = "/static/images/abrirojo.png";
     } else {
-        passwordInput.setAttribute("type", "password");
-        toggleIcon.src = cerrarOjoUrl;
-        toggleIcon.alt = "Cerrar Ojo"
+        passwordInput.type = "password";
+        toggleIcon.src = "/static/images/cerrarojo.png";
     }
 }
