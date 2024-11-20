@@ -48,7 +48,7 @@ nav a:hover {
 
 /* Estilo para el contenedor del formulario de ingreso */
 .formularioIngreso {
-  background-color: #ffffff80;
+  background-color: #ffffffde;
   max-width: 250px;
   margin: 50px auto;
   padding: 20px;
@@ -84,7 +84,7 @@ nav a:hover {
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
 }
 
 /* Estilo para los campos de entrada dentro del formulario */
@@ -98,9 +98,7 @@ form input {
 /* Estilo para los botones dentro del formulario y el botón de envío */
 form button,input[type="submit"] {
   padding: 10px 20px;
-  background: linear-gradient(300deg, #3a86ff, #219ebc);
   color: #fff;
-  border: none;
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px; 
