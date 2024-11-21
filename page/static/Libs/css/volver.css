@@ -4,17 +4,30 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    margin: 0;
   }
 
   nav {
     background-color: #00000080; 
     padding: 10px 0; 
-    box-shadow: 0 2px 5px #fffb00ea; 
+    box-shadow: 0 2px 5px #7678ed; 
   }
   
   nav ul, li {
     margin: 0;
+  }
+
+  .custom-img {
+    max-width: 80px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  header {
+    text-align: center;
+    padding: 10px 0; 
+    background-color: #00000080; 
+    color: #fff; 
+    box-shadow: 0 2px 5px #90e0ef; 
   }
   
   nav ul li a {
@@ -23,39 +36,30 @@ body {
     padding: 10px 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   nav ul li a:hover {
     background-color: transparent; 
     color: #90e0ef;
   }
   
-  header {
-    text-align: center;
-    padding: 10px 0; 
-    background-color: #00000080; 
-    color: #fff; 
-    box-shadow: 0 2px 5px #90e0ef; 
-  }
-
   .formularioRegistro {
-    background-color: #edede9;
-    max-width: 250px;
-    margin: 50px auto;
-    padding: 20px;
+    background-color: #ffffffde;
+    max-width: 300px;
+    margin: 80px auto;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 0 0 20px 0 #00000080; 
     text-align: center;
   }
 
-  form {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
   }
   
   form input {
-    padding: 5px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 15px;
