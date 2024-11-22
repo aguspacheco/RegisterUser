@@ -1,7 +1,6 @@
 .navbar {
     display: flex;
     justify-content: flex-end;
-    background-color: #333;
     padding: 10px;
     width: 100%; 
     position: fixed; 
@@ -34,17 +33,13 @@ h1 {
   }
 
 .dropbtn {
-    background-color: #333;
-    color: white;
+    background-color: transparent;
+    color: #00000080;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     margin: 0; 
-}
-
-.dropbtn:hover {
-    background-color: #555;
 }
 
 .dropdown-content {

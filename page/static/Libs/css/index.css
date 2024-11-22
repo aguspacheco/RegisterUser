@@ -1,11 +1,5 @@
 body {
-   background-image: url('/static/images/fondoIndex.png');
-   flex: 1;
-   max-height: 100%;
-   max-width: 100%;
-   overflow-y: auto;
-   overflow-x: hidden;
-   background-color: #EEEEEE;
+   background-image: url('/static/images/FondoIndex.png');
   }
   
   p {
