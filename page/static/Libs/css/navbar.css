@@ -1,29 +1,12 @@
 .navbar {
-    display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 10px;
     width: 100%; 
     position: fixed; 
     top: 0; 
     left: 0; 
-}
-
-.centrado {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin: 150px auto 20px;
-    width: 50%;
-    background-image: url('/static/images/fondo1.png');
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
-
-.usuario {
-    width: 20px; 
-    height: auto; 
-    margin-right: 8px; 
-    vertical-align: middle; 
+    display: flex;
+    align-items: center;
 }
 
 h1 {
@@ -31,6 +14,7 @@ h1 {
     font-size: 25px;
     margin-bottom: 10px;
   }
+
 
 .dropbtn {
     background-color: transparent;
@@ -49,7 +33,7 @@ h1 {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px #00000033;
     z-index: 1;
-    right: 0; 
+    left: 0; 
 }
 
 .dropdown-content a {
@@ -65,4 +49,12 @@ h1 {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.usuario {
+    width: 30px; 
+    height: auto; 
+    margin-right: 8px; 
+    vertical-align: middle; 
+    display: inline-block;
 }

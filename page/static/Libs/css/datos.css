@@ -1,3 +1,7 @@
+body {
+    background-image: url('/static/images/FondoIndex.png');
+}
+
 .info-row {
     display: flex;
     justify-content: space-between;

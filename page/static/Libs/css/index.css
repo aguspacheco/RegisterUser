@@ -1,11 +1,9 @@
 body {
    background-image: url('/static/images/FondoIndex.png');
   }
-  
-  p {
-    color: #666;
-    font-size: 15px;
-    margin-bottom: 20px;
+
+  .custom-img {
+    max-width: 80px;
   }
 
   .dropdown-content a {
@@ -15,10 +13,20 @@ body {
     padding: 12px 16px;
     color: #ffffff !important;
     text-decoration: none; 
-    display: block; 
-    
+    display: block;  
   }
-  
+
+  .centrado {
+    background-color: #ffffffc2;   
+    max-width: 500px;
+    margin: 100px auto; 
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0 #00000080;
+
+    text-align: center;
+}
+
   .centrado .btn {
     color: #fff; 
     text-decoration: none; 
