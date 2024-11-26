@@ -1,9 +1,16 @@
 body {
-   background-image: url('/static/images/FondoIndex.png');
+   background-image: url('/static/images/fondoIndex.png');
   }
 
   .custom-img {
     max-width: 80px;
+  }
+
+  .Usuario, .Tramite, .CerrarSesion {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    vertical-align: middle;
   }
 
   .dropdown-content a {

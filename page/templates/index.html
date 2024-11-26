@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="{% static 'Libs/css/index.css' %}">
     <link rel="stylesheet" href="{% static 'Libs/css/navbar.css' %}">
 </head>
-
 <body>
   <div class="navbar">
     <div class="dropdown">
-      <button class="dropbtn"> <img class="usuario" src="{% static 'images/avatar.png' %}" alt="Descripción de la imagen"></button >
+      <button class="dropbtn"> 
+          <img class="usuario" src="{% static 'images/avatar.png' %}" alt="Descripción de la imagen"></button >
       <div class="dropdown-content">
-        <a href="{% url 'datos_usuario' %}">Datos</a>
-        <a href="{% url 'tramiteUser' %}">Mis Trámites</a>
-        <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        <a href="{% url 'datos_usuario' %}">
+          <img src="{% static 'images/avatar.png'%}" alt="Usuario" class="Usuario">Datos del usuario</a>
+        <a href="{% url 'tramiteUser' %}">
+          <img src="{% static 'images/verTramite.png'%}" alt="Tramite" class="Tramite">Mis Trámites</a>
+        <a href="{% url 'logout' %}">
+          <img src="{% static 'images/cerrarSesion.png'%}" alt="CerrarSesion" class="CerrarSesion">Cerrar Sesión</a>
       </div>
     </div>
   </div>
