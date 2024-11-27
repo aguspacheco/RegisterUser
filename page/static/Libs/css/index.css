@@ -6,7 +6,7 @@ body {
     max-width: 80px;
   }
 
-  .Usuario, .Tramite, .CerrarSesion {
+  .Perfil, .Tramite, .CerrarSesion {
     width: 20px;
     height: auto;
     margin-right: 8px;
