@@ -1,14 +1,14 @@
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
-    color: #333;
+    color: #000000db;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #error-message {
-    color: red;
+    color: #d90429;
     font-size: 0.9em;
     display: none;
 }
@@ -20,7 +20,7 @@ h8 {
 h5 {
     text-align: center;
     margin-top: 10px;
-    color: #1d1c1c;
+    color: #000000db;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -34,7 +34,7 @@ h5 {
 
 select {
     font-size: 14px;
-    color: #333;
+    color: #000000db;
     border: 1px solid #ccc;
     border-radius: 5px;
     appearance: none;
@@ -44,7 +44,7 @@ select {
 }
 
 #ejido option {
-    color: #333;
+    color: #000000db;
 }
 
 .fila {
@@ -91,42 +91,46 @@ input::placeholder {
     justify-content: center; 
     margin-top: 10px;
     gap: 20px; 
-  }
+}
 
 .enviar-btn {
-    background-image: linear-gradient(to bottom, #87CEEB, #4682B4); 
-    color: #f8f9fa;
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.enviar-btn:hover {
-    background-image: linear-gradient(to bottom, #4682B4, #87CEEB);
-    color: #f8f9fa;
+    font-size: 15px;
 }
 
 .borrar-btn {
-    background-image: linear-gradient(to bottom, #c1121f, #d90429);
-    color: #FFFFFF;
+    background-color: #d90429;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.borrar-btn:hover {
-    background-image: linear-gradient(to bottom, #FF69B4, #e42d4b); 
-    color: #FFFFFF;
+    font-size: 15px;
 }
 
 .volver-btn {
-    background-image: linear-gradient(to bottom, #F7DC6F, #FFA07A); 
-    color: #333;
+    background-color: #fdae00;
+    color: #000000db;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 15px;
 }
-  
+
+.enviar-btn:hover {
+    background-color: #5baaff; 
+    color: #fff;
+}
+
+.borrar-btn:hover {
+    background-color: #f54b5f; 
+    color: #fff;
+}
+
 .volver-btn:hover {
-    background-image: linear-gradient(to bottom, #FFA07A, #F7DC6F); 
+    background-color: #ffd366;
 }
+
