@@ -1,9 +1,12 @@
 # Importancion de modulos y funciones.
 import json
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
 from django.db import IntegrityError
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -15,6 +18,8 @@ from .models import Ejido, Formulario
 from .forms import FormularioForm
 from .utils.funciones import mensaje_exito, mensaje_error
 from django.utils import timezone
+
+
 
 # Función para validaciones de campos vacios
 def validarCampos(request, *fields):
