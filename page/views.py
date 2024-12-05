@@ -10,8 +10,8 @@ from django.utils.encoding import force_bytes
 from django.db import IntegrityError
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from .models import Ejido, Formulario
@@ -19,7 +19,44 @@ from .forms import FormularioForm
 from .utils.funciones import mensaje_exito, mensaje_error
 from django.utils import timezone
 
+NOTIFICATION_EMAIL = "dgceit@chubut.gov.ar"
 
+def password_reset_request(request):
+    if request.method == "POST":
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            send_mail(subject="Solicitud de restablecimiento de contraseña", message=f"El usuario {email} solicito reestablacer su contraseña", from_email="no-reply@vesep.com", recipient_list=[NOTIFICATION_EMAIL],)
+            return redirect("password_reset_confirmation")
+        else:
+            return render(request, "password_reset_request.html", {"form": form, "error": "Formulario invalido"})
+    else:
+        form = PasswordResetForm()
+    return render(request, "password_reset_request.html", {"form": form})
+                  
+def password_reset_no_email(request):
+    if request.method == 'POST':
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            user = User.objets.filter(email=email).first()
+            if user:
+                token = default_token_generator.make_token(user)
+                uid = urlsafe_base64_encode(force_bytes(user.pk))
+                reset_url = f"/reset-password-confirm/{uid}/{token}/"
+                return JsonResponse({"message": "Se generó un enlace para restablecer tu contraseña"})
+        return JsonResponse({"error": "Email no valido"}, status=400)
+    else:
+        form = PasswordResetForm()
+    return render(request, 'password_reset_no_email.html', {'form': form})
+
+def password_reset_confirmation(request):
+    if request.method == "POST":
+        if "edit_email" in request.POST:
+            return redirect("password_reset_request")
+        else:
+            return redirect("signin.html")
+    return render(request, "password_reset_confirmation.html")
 
 # Función para validaciones de campos vacios
 def validarCampos(request, *fields):

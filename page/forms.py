@@ -52,3 +52,7 @@ class FormularioForm(forms.ModelForm):
         if len(str(cuit)) != 11:  
             raise ValidationError('El CUIT debe tener 11 dígitos.')
         return cuit
+
+    class PasswordResetForm(forms.Form):
+        email = forms.CharField(label="Dirección de correo electrónico o nombre de usuario", max_length=254, widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Escribe tu correo o usuario"})
+        )

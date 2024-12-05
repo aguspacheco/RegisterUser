@@ -12,7 +12,11 @@ urlpatterns = [
     path('index/', views.index, name='index'),
 
     #Vistas estaticas 
-    path('password_reset_complete/', views.password_reset_complete, name='password_reset_complete'),
+    path('reset-password/', views.password_reset_request, name="password_reset_request"),  
+    path("reset-password/confirmation/", views.password_reset_confirmation, name="password_reset_confirmation"),
+    path('password-reset-done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
     path('tramiteUser/', views.tramiteUser, name='tramiteUser'),
     path('formulario/', views.ejidos_view, name='formulario'),
     path('formulario-exito/', views.formulario_exito, name="formulario_exito"),

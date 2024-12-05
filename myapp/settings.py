@@ -93,6 +93,8 @@ MESASAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 WSGI_APPLICATION = 'myapp.wsgi.application'
 
 # Database
