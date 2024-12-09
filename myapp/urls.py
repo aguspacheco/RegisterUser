@@ -10,6 +10,7 @@ urlpatterns = [
     path('logout/', views.salir, name='logout'),
     path('signin/', views.signin, name="signin"),
     path('index/', views.index, name='index'),
+    
 
     #Vistas estaticas 
     path('reset-password/', views.password_reset_request, name="password_reset_request"),  

@@ -1,101 +1,95 @@
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url('/static/images/fondo.png');
-    font-family: Arial, Helvetica, sans-serif;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+}
+
+nav {
+    background-color: #00000080;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px #7678ed;
+}
+
+/* Elimina márgenes predeterminados para listas en el nav */
+nav ul, li {
     margin: 0;
 }
-
-p {
-    text-align: center;
-}
-
-.reset-password-form {
-    background-color: #f0f0f0; 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 10px #000000d2; 
-    max-width: 300px; 
-    margin: 0 auto; 
-    margin-top: 90px; 
-    margin-bottom: 100px;
-  }
-
-.reset-password-form h2 {
-    color: #007bff;
-    text-align: center;
-}
-
-.reset-password-form label {
-    color: #333;
-    display: block;
-    text-align: center;
-}
-
-.reset-password-form input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.reset-password-form input[type="email"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px #0c6ace80;
-}
-
-.reset-password-form input[type="submit"] {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.reset-password-form input[type="submit"]:hover {
-    background-color: #2f8ef5;
-}
-
-.botones {
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-}
-
-.enviar-btn {
-    background-image: linear-gradient(to bottom, #1dafe9, #7bc2fc); 
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 60px; 
-    height: 40px; 
-    font-size: 12px; 
-    border-radius: 5px;
-}
-
-.enviar-btn:hover {
-    background-image: linear-gradient(to bottom, #1a73bd, #54cdfd);
-    color: #faedcd;
-}
-
-.volver-btn {
-    background-image: linear-gradient(to bottom, #ffd52d, #eecb32); 
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 60px; 
-    height: 40px; 
-    font-size: 12px; 
-    border-radius: 5px;
+  
+.custom-img {
+    max-width: 80px;
 }
   
-.volver-btn:hover {
-    background-image: linear-gradient(to bottom, #ecbc1b, #ffd52c); 
+/* Estilo para el encabezado */
+header {
+    text-align: center;
+    padding: 10px 0; 
+    background-color: #00000080; 
+    color: #fff; 
+    box-shadow: 0 2px 5px #90e0ef; 
 }
+  
+/* Estilo para los enlaces en el elemento de navegación */
+nav a {
+    color: #fff; 
+    text-decoration: none; 
+    padding: 5px 15px; 
+}
+  
+/* Estilo para los enlaces cuando se pasa sobre alguno de ellos */
+nav a:hover {
+    color: #90e0ef; 
+    text-decoration: none; 
+}
+
+form {
+    background-color: #ffffffde;
+    max-width: 250px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #00000080;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb; 
+}
+
+.alert-dismissible {
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+    margin: 0 auto;
+}
+
+.alert {
+    transition: opacity 0.5s ease-out;
+    margin-bottom: 15px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+form button, input[type="submit"] {
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+

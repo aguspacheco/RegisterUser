@@ -52,10 +52,11 @@ def password_reset_no_email(request):
 
 def password_reset_confirmation(request):
     if request.method == "POST":
-        if "edit_email" in request.POST:
+        action = request.POST.get("action")
+        if action == "signin":
+            return redirect("signin")
+        elif action == "edit_email":
             return redirect("password_reset_request")
-        else:
-            return redirect("signin.html")
     return render(request, "password_reset_confirmation.html")
 
 # Función para validaciones de campos vacios
