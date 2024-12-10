@@ -130,7 +130,6 @@ def signin(request):
     login(request, user)
     return redirect('index')
 
-
 # Vista para mostrar datos del usuario autenticado
 @login_required
 def datos_usuario(request):
