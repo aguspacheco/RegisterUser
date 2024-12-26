@@ -31,7 +31,7 @@ LOGIN_REDIRECT_URL = 'index'
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1bptho)zx)72td(3z*vwh$5q$#+&ia3&z2+p#cv&nf%=yue*ps'
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-1bptho)zx)72td(3z*vwh$5q$#+&ia3&z2+p#cv&nf%=yue*ps')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-MESASAGE_TAGS = {
+MESSAGE_TAGS = {
     messages.DEBUG: 'alert-dark',
     messages.INFO: 'alert-info',
     messages.SUCCESS: 'alert-success',

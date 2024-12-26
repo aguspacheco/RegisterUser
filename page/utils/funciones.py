@@ -18,11 +18,3 @@ def validate_no_mayor_actual(value):
     if value > timezone.now().date():
         raise ValidationError('La fecha no puede ser en el futuro.')
 
-# -------------------- PDF -----------------
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-def registrar_fuentes():
-    pdfmetrics.registerFont(TTFont('Calibri', 'calibri.ttf'))
-    pdfmetrics.registerFont(TTFont('TituloFont', 'times.ttf'))
-    pdfmetrics.registerFont(TTFont('Times-Italic', 'timesi.ttf'))
-    pdfmetrics.registerFont(TTFont('Times-Bold', 'timesbd.ttf'))
